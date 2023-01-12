@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isin.c                                          :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 11:46:06 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 15:18:24 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/12 13:57:55 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/12 14:45:28 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isin(char c)
+int	ft_count_words(char *s)
 {
-	int		i;
-	char	*charset;
+	int	word;
+	int	i;
 
-	charset = ft_strdup(" \t\v\n\r\f");
 	i = 0;
-	while (charset[i])
+	word = 0;
+	while (s[i])
 	{
-		if (charset[i] == c)
-			return (1);
+		while (s[i] && ft_isin(s[i]))
+			i++;
+		if (s[i])
+			word++;
+		while (s[i] && !ft_isin(s[i]))
+			i++;
 	}
-	return (0);
+	return (word);
 }

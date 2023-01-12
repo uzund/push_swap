@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:51:37 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 13:06:12 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/12 16:35:43 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	ft_isin(char c);
+int		ft_isin(char c);
 char	*ft_strdup(const char *s1);
-// size_t	ft_strlen(const char *s);
-// int		ft_putchar(char c);
-// int		ft_putstr(char *str);
-// size_t	ft_nbrlen(int nbr);
-// int		ft_putnbr(int nbr);
-// void	*ft_free(void *str);
+char	*ft_strncpy(char *dest, const char *src, size_t n);
+char	*ft_strndup(const char *s, size_t len);
+int		ft_count_words(char *s);
+int		ft_isdigit(int c);
+int		ft_isspace(char *s);
+double	ft_atof(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *s);
+
 
 #endif

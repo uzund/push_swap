@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isin.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 11:46:06 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 15:18:24 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/12 16:31:23 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/12 16:31:32 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isin(char c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
-	char	*charset;
+	char	*dst;
+	size_t	i;
+	size_t	j;
 
-	charset = ft_strdup(" \t\v\n\r\f");
+	if (!s1 && !s2)
+		return (NULL);
+	dst = (char *)malloc(sizeof(*s1) * ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!dst)
+		return (NULL);
 	i = 0;
-	while (charset[i])
+	j = 0;
+	while (*(s1 + i))
 	{
-		if (charset[i] == c)
-			return (1);
+		dst[j++] = s1[i++];
 	}
-	return (0);
+	i = 0;
+	while (*(s2 + i))
+		dst[j++] = s2[i++];
+	dst[j] = '\0';
+	return (dst);
 }

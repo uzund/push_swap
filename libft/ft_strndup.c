@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isin.c                                          :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 11:46:06 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 15:18:24 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/12 14:43:20 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/12 14:43:46 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isin(char c)
+char	*ft_strndup(const char *s, size_t len)
 {
-	int		i;
-	char	*charset;
+	char	*dst;
 
-	charset = ft_strdup(" \t\v\n\r\f");
-	i = 0;
-	while (charset[i])
-	{
-		if (charset[i] == c)
-			return (1);
-	}
-	return (0);
+	dst = (char *)malloc(sizeof(char) * (len + 1));
+	if (!dst)
+		return (NULL);
+	dst = ft_strncpy(dst, s, len);
+	return (dst);
 }

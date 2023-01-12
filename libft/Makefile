@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:45:00 by duzun             #+#    #+#              #
-#    Updated: 2023/01/12 11:45:50 by duzun            ###   ########.fr        #
+#    Updated: 2023/01/12 16:36:21 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,16 @@ CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
 RM		=	rm -f
 
-SRCS	=	ft_isin.c
+SRCS	=	ft_isin.c \
+			ft_strncpy.c \
+			ft_strndup.c \
+			ft_split.c \
+			ft_atof.c \
+			ft_isdigit.c \
+			ft_count_words.c \
+			ft_isspace.c \
+			ft_strjoin.c \
+			ft_strlen.c
 						
 OBJS				=	$(SRCS:.c=.o)
 

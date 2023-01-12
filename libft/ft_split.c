@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isin.c                                          :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 11:46:06 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 15:18:24 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/12 14:44:16 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/12 14:45:06 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isin(char c)
+char	**ft_split(char *s)
 {
+	char	**array;
 	int		i;
-	char	*charset;
+	int		j;
+	int		k;
 
-	charset = ft_strdup(" \t\v\n\r\f");
+	array = (char **)malloc(sizeof(char *) * (ft_count_words(s) + 1));
 	i = 0;
-	while (charset[i])
+	j = 0;
+	while (s[i])
 	{
-		if (charset[i] == c)
-			return (1);
+		while (s[i] && ft_isin(s[i]))
+			i++;
+		k = i;
+		while (s[i] && !(ft_isin(s[i])))
+			i++;
+		if (i > k)
+			array[j++] = ft_strndup(s + k, i - k);
 	}
-	return (0);
+	array[i] = 0;
+	return (array);
 }

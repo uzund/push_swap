@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:23:07 by duzun             #+#    #+#              #
-#    Updated: 2023/01/12 11:45:34 by duzun            ###   ########.fr        #
+#    Updated: 2023/01/12 19:24:08 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,10 @@ BLUE		= \033[0;34m
 RESET		= \033[0m
 END			= \e[0m
 
-SRCS		= 	srcs/push_swap.c
+SRCS		= 	srcs/push_swap.c \
+				srcs/ft_sum_str.c \
+				srcs/ft_check.c
+				
 NAME		=	push_swap
 CC			=	gcc
 CFLAGS		=	-Wall -Werror -Wextra -std=c11 -g
@@ -56,4 +59,4 @@ fclean: clean
 	
 re:	fclean all
 				
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re				

@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_sum_str.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 19:27:43 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/12 18:47:29 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/12 18:48:10 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "../libft/libft.h"
-
-char	*ft_sum_str(char *s, const char *s2);
-int		ft_check(const char *s);
-
-#endif
+char	*ft_sum_str(char *s, const char *s2)
+{
+	s = ft_strjoin(s, s2);
+	s = ft_strjoin(s, " ");
+	return (s);
+}

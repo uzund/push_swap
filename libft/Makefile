@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:45:00 by duzun             #+#    #+#              #
-#    Updated: 2023/01/12 16:36:21 by duzun            ###   ########.fr        #
+#    Updated: 2023/01/12 19:30:19 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ RM		=	rm -f
 SRCS	=	ft_isin.c \
 			ft_strncpy.c \
 			ft_strndup.c \
+			ft_strdup.c \
 			ft_split.c \
 			ft_atof.c \
 			ft_isdigit.c \

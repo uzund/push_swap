@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 19:27:43 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/12 18:56:33 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/12 19:25:40 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "../libft/libft.h"
+int	ft_check(const char *s)
+{
+	int	i;
+	int	k;
 
-char	*ft_sum_str(char *s, const char *s2);
-int		ft_check(const char *s);
-
-#endif
+	k = 0;
+	i = 0;
+	while (s[i])
+	{
+		if ((s[i] == '-' || s[i] == '+') && k == 0)
+			k++;
+		else if (k > 1)
+			return (0);
+		else if ((s[i] >= '0' && s[i] <= '9') || !ft_isin(s[i]))
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}

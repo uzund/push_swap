@@ -6,50 +6,74 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 23:18:57 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/13 16:33:55 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h> // close
 
-int	ft_master_check(char *s)
+int	ft_master_check(char **s)
 {
-	int	check;
+	char	**arg;
+	int		words;
+	int		check;
+	int		i;
 
+	arg = s;
 	check = 0;
-	check = ft_check_number(s);
-	printf("geçti\n");
-	return (check);
+	words = 0;
+	i = 0;
+	while (arg[++i])
+	{
+		check = ft_check_number(arg[i]);
+		words += ft_count_words(arg[i]);
+		if (!check)
+		{
+			printf("Berbat string :%d\n", check);
+			printf("words :%d\n", words);
+			return (0);
+		}
+	}
+	printf("Temiz string :%d\n", words);
+	printf("Total words :%d\n", words);
+	if (words <= 1)
+		check = 0;
+	else
+	{
+		check = ft_check_minmax(s);
+	}
+	return (check * words);
 }
 
 int	main(int ac, char **av)
 {
-	// int	*arraya;
+	float	*arraya;
 	// int	*arrayb;
-	char	*s;
+	char	**s;
+	// char 	*ssum;
 	int		i;
 	int		check;
+	int 	words;
 
 	if (ac > 1)
 	{
-		s = (char *)malloc(sizeof(char) + 1);
 		i = 0;
-		while (av[++i])
-			s = ft_sum_str(s, &av[i][0]);
-		printf("total arguman : %s\n", s);
+		words = 0;
+		s = av;
 		check = ft_master_check(s);
-		if (check)
+		if (!check)
 		{
-			printf("Tertemiz string :\n");
+			write(2, "Error! Check\n", 13);
 			return (0);
 		}
 		else
 		{
-			printf("Berbat string :%d\n", check);
-			return (0);
+			arraya = (float *)malloc(sizeof(float) + 1);
+			// ssum = ft_sum_str(ssum, s);
+			printf("Kontrol Başaralı\n");
 		}
-		return (0);
+
 	}
 	else
 	{

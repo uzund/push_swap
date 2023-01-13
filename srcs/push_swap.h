@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 21:42:41 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/13 15:22:26 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 #include <stdio.h>
 # include "../libft/libft.h"
 
-char	*ft_sum_str(char *s, const char *s2);
+char	*ft_sum_str(char *ssum, const char *s);
 int		ft_check_number(const char *s);
-int		ft_master_check(char *s);
+int		ft_master_check(char **arg);
+int		ft_check_minmax(char **s);
 
 #endif

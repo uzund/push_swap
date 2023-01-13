@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 18:56:33 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 23:25:34 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/13 13:00:45 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_check_number(const char *s)
 	i = -1;
 	pluscount = 0;
 	minuscount = 0;
-	printf("geldi 1\n");
 	while (s[++i] != '\0')
 	{
 		if ((!ft_isdigit(s[i]) && s[i] != '-' && s[i] != '+') && !ft_isin(s[i]))

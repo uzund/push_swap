@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:00:33 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 16:29:04 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/13 16:28:46 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ double	ft_atof(const char *s)
 	}
 	else if (*s == '+')
 		s++;
-	while (ft_isdigit(*s) || *s == '.')
+	while (ft_isdigit(*s))
 	{
-		if (*s == '.')
-			dot = 1;
-		else
-		{
-			if (dot)
-				count++;
+		// if (*s == '.')
+		// 	dot = 1;
+		// else
+		// {
+		// 	if (dot)
+		// 		count++;
 		num = (*s - '0') + (num * 10);
-		}
+		// }
 		s++;
 	}
-	while (count--)
-		num /= 10;
+	// while (count--)
+	// 	num /= 10;
 	return (num * sign);
 }

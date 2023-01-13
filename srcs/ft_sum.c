@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_sum.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 14:44:16 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 18:38:37 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/13 20:05:37 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/13 20:21:57 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	**ft_split(char *s)
+char	*ft_sum(char **s)
 {
-	char	**array;
+	char	**arg;
+	char	*ssum;
 	int		i;
-	int		j;
-	int		k;
 
-	array = (char **)malloc(sizeof(char *) * (ft_count_words(s) + 1));
+	arg = s;
+	ssum = (char *)malloc(sizeof(char) + 1);
 	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] && ft_isin(s[i]))
-			i++;
-		k = i;
-		while (s[i] && !(ft_isin(s[i])))
-			i++;
-		if (i > k)
-			array[j++] = ft_strndup(s + k, i - k);
-	}
-	array[i] = 0;
-	return (array);
+	while (arg[++i])
+		ssum = ft_sum_str(ssum, arg[i]);
+	return (ssum);
 }

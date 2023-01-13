@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:00:33 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 16:28:46 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/13 20:33:21 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ double	ft_atof(const char *s)
 {
 	double	num;
 	int		sign;
-	int		dot;
-	int		count;
+	//int		dot;
+	// int		count;
 
 	num = 0.0;
 	sign = 1;
-	dot = 0;
-	count = 0;
+	//dot = 0;
+	//count = 0;
 	while (ft_isin(*s))
 		s++;
 	if (*s == '-')

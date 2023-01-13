@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:51:37 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 16:25:51 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/13 18:48:27 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_isspace(char *s);
 double	ft_atof(const char *s);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *s);
+char	**ft_split(char *s);
 
 
 #endif

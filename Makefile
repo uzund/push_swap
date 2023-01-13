@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:23:07 by duzun             #+#    #+#              #
-#    Updated: 2023/01/13 15:08:34 by duzun            ###   ########.fr        #
+#    Updated: 2023/01/13 20:10:12 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ END			= \e[0m
 SRCS		= 	srcs/push_swap.c \
 				srcs/ft_sum_str.c \
 				srcs/ft_check_number.c \
-				srcs/ft_check_minmax.c
+				srcs/ft_check_minmax.c \
+				srcs/ft_array_dup.c \
+				srcs/ft_sum.c
 				
 NAME		=	push_swap
 CC			=	gcc

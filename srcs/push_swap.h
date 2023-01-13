@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 20:22:15 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/13 21:24:26 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,10 @@ int		ft_master_check(char **arg);
 int		ft_check_minmax(char **s);
 void	ft_array_dup(int n);
 char	*ft_sum(char **s);
+int		ft_sort_master(char **array, int count);
+int		ft_sort_all(char **array, int count);
+int		ft_sort_five(char **array, int count);
+int		ft_sort_three(char **array, int count);
+int		ft_sort_two(char **array, int count);
+
 #endif

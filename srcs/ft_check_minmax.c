@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:54:26 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 20:42:29 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/13 21:01:56 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ int	ft_check_minmax(char **s)
 	int		check;
 	int		words;
 	int		i;
-	// int		j;
-	double 	minmax;
+	double	minmax;
 
 	arg = s;
 	words = 0;
@@ -28,7 +27,7 @@ int	ft_check_minmax(char **s)
 	while (arg[++i])
 	{
 		words = ft_count_words(arg[i]);
-		printf("Arg[%d]words :%d\n",i, words);
+		//printf("Arg[%d]words :%d\n",i, words);
 		while (words--)
 		{
 			minmax = ft_atof(&arg[i][0]);

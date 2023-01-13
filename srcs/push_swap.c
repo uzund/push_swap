@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 20:45:47 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/13 21:09:48 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ int	ft_master_check(char **s)
 	else
 	{
 		check = ft_check_minmax(arraytmp);
+	}
+	if (check * words != 0)
+	{
+		printf("-- > Rakam sayısı : %d\n", words);
+		ft_sort_master(arraytmp, words);
 	}
 	return (check * words);
 }

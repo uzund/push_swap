@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:51:37 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 22:57:11 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/14 03:40:26 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ size_t	ft_strlen(const char *s);
 char	**ft_split(char *s);
 int		ft_atoi(const char *str);
 int		ft_strcmp(char *s1, char *s2);
+void	ft_swap(int *a, int *b);
 
 #endif

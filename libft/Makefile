@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:45:00 by duzun             #+#    #+#              #
-#    Updated: 2023/01/13 22:57:27 by duzun            ###   ########.fr        #
+#    Updated: 2023/01/14 03:40:35 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRCS	=	ft_isin.c \
 			ft_strjoin.c \
 			ft_strlen.c \
 			ft_atoi.c \
-			ft_strcmp.c
+			ft_strcmp.c \
+			ft_swap.c
 						
 OBJS				=	$(SRCS:.c=.o)
 

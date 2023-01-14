@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_all.c                                      :+:      :+:    :+:   */
+/*   ft_sa.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 21:19:55 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/14 03:01:40 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/14 02:29:50 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/14 02:42:03 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_sort_all(int **arraya, int count)
+void	ft_sa(int *a, int *b)
 {
-	(void) arraya;
-	(void) count;
-	return (0);
+	int	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+	write(1, "sa\n", 3);
 }

@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:23:07 by duzun             #+#    #+#              #
-#    Updated: 2023/01/13 21:26:11 by duzun            ###   ########.fr        #
+#    Updated: 2023/01/14 03:03:17 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,11 @@ SRCS		= 	srcs/push_swap.c \
 				srcs/ft_sort_two.c \
 				srcs/ft_sort_three.c \
 				srcs/ft_sort_five.c \
-				srcs/ft_sort_all.c
+				srcs/ft_sort_all.c \
+				srcs/ft_ra.c \
+				srcs/ft_check_duplicate.c \
+				srcs/ft_check_null.c \
+				srcs/ft_sa.c
 				
 NAME		=	push_swap
 CC			=	gcc

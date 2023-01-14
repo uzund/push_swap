@@ -6,15 +6,15 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:20:14 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 21:29:50 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/14 03:01:25 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_sort_five(char **array, int count)
+int	ft_sort_five(int **arraya, int count)
 {
-	(void) array;
+	(void) arraya;
 	(void) count;
 	return (0);
 }

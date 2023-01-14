@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_all.c                                      :+:      :+:    :+:   */
+/*   ft_check_duplicate.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 21:19:55 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/14 03:01:40 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/13 22:44:58 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/13 23:04:54 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_sort_all(int **arraya, int count)
+int	ft_check_duplicate(char **arraytmp)
 {
-	(void) arraya;
-	(void) count;
-	return (0);
+	char	**array;
+	int		i;
+	int		j;
+
+	array = arraytmp;
+	i = -1;
+	while (array[++i])
+	{
+		j = i + 1;
+		while (array[j])
+		{
+			if (ft_strcmp(array[i], array[j]) == 0)
+				return (0);
+			j++;
+		}
+	}
+	return (1);
 }

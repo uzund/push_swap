@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 21:09:48 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/14 01:29:00 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,14 @@ int	ft_master_check(char **s)
 	check = 0;
 	words = 0;
 	i = 0;
+	
 	ssum = ft_sum(arg);
+	i = -1;
+
+	// check = ft_check_null(&ssum[i]);
+	// if (check == 0)
+	// 	return (0);
+
 	printf("ft_sum : %s\n", ssum);
 	arraytmp = ft_split(ssum);
 	arg = arraytmp;
@@ -34,6 +41,7 @@ int	ft_master_check(char **s)
 	while (arg[++i])
 	{
 		check = ft_check_number(arg[i]);
+		// check = ft_check_null(arg[i]);
 		if (!check)
 		{
 			printf("Erorr! number :%d\n", check);
@@ -49,10 +57,12 @@ int	ft_master_check(char **s)
 	else
 	{
 		check = ft_check_minmax(arraytmp);
-	}
-	if (check * words != 0)
-	{
+		check = ft_check_duplicate(arraytmp);
+	// }
+	// if (check * words != 0)
+	// {
 		printf("-- > Rakam sayısı : %d\n", words);
+		
 		ft_sort_master(arraytmp, words);
 	}
 	return (check * words);

@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rra.c                                           :+:      :+:    :+:   */
+/*   ft_pa.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 03:18:39 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/14 04:37:12 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/14 05:57:49 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/14 06:03:45 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rra(int **arraya, int count)
+void	pa(int *a, int *b, int *len_a, int *len_b)
 {
-	int	**tmp;
+	int	i;
 
-	tmp = arraya;
-	while (count--)
+	if (*len_b > 0)
 	{
-		if (!((count - 1) < 0) && *tmp[count] < *tmp[count - 1])
+		*len_a += 1;
+		i = *len_a;
+		while (i > 0)
 		{
-			ft_sa(tmp[count - 1], tmp[count]);
+			a[i] = a[i - 1];
+			i--;
+		}
+		a[0] = b[0];
+		*len_b -= 1;
+		i = 0;
+		while (i < *len_b)
+		{
+			b[i] = b[i + 1];
+			i++;
 		}
 	}
-	write(1, "rra\n", 4);
 }

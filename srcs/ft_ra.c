@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:41:50 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/14 04:00:14 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/14 06:04:14 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_ra(int **arraya, int count)
 {
 	int	**tmp;
-	int i;
+	int	i;
 
 	tmp = arraya;
 	i = 0;

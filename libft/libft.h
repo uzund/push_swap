@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:51:37 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/14 03:40:26 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/18 23:35:21 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+//# include "../srcs/push_swap.h"
+
+// typedef struct s_list
+// {
+// 	int				data;
+// 	int				index;
+// 	struct s_list	*next;
+// }				t_list;
 
 int		ft_isin(char c);
 char	*ft_strdup(const char *s1);
@@ -29,6 +37,9 @@ size_t	ft_strlen(const char *s);
 char	**ft_split(char *s);
 int		ft_atoi(const char *str);
 int		ft_strcmp(char *s1, char *s2);
-void	ft_swap(int *a, int *b);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:54:26 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 21:01:56 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/18 23:13:07 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_check_minmax(char **s)
 				printf("limitlerin üzerinde değer\n");
 				return (0);
 			}
-			ft_array_dup((int) minmax);
+			//ft_array_dup((int) minmax);
 		}
 	}
 	return (1);

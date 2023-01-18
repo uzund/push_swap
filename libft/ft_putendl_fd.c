@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rrb.c                                           :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 05:15:06 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/14 05:15:34 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/18 16:54:27 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/18 17:03:00 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	ft_rrb(int **arrayb, int count)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int	**tmp;
-
-	tmp = arrayb;
-	while (count--)
-	{
-		if (!((count - 1) < 0) && *tmp[count] < *tmp[count - 1])
-		{
-			ft_sa(tmp[count - 1], tmp[count]);
-		}
-	}
-	write(1, "rrb\n", 4);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

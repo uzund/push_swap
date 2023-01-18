@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_array_dup.c                                     :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 18:19:18 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 18:28:40 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/17 23:07:52 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/18 22:47:50 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_array_dup(int n)
+void	ft_lstadd_front(t_list **stack, t_list *new)
 {
-	n = 0;
-	//int 	*arraya;
-	
-	
+	new->next = *stack;
+	*stack = new;
 }

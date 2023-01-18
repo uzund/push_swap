@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:23:07 by duzun             #+#    #+#              #
-#    Updated: 2023/01/14 05:23:50 by duzun            ###   ########.fr        #
+#    Updated: 2023/01/18 21:59:56 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,29 +16,27 @@ BLUE		= \033[0;34m
 RESET		= \033[0m
 END			= \e[0m
 
-SRCS		= 	srcs/push_swap.c \
-				srcs/ft_sum_str.c \
-				srcs/ft_check_number.c \
-				srcs/ft_check_minmax.c \
-				srcs/ft_array_dup.c \
-				srcs/ft_sum.c \
-				srcs/ft_sort_master.c \
-				srcs/ft_sort_two.c \
-				srcs/ft_sort_three.c \
-				srcs/ft_sort_five.c \
-				srcs/ft_sort_all.c \
-				srcs/ft_check_duplicate.c \
-				srcs/ft_check_null.c \
-				srcs/ft_ra.c \
-				srcs/ft_rb.c \
-				srcs/ft_sa.c \
-				srcs/ft_rra.c \
-				srcs/ft_rrb.c \
-				srcs/ft_pb.c
+SRCS =  $(wildcard srcs/*.c)
+# SRCS		= 	srcs/push_swap.c \
+# 				srcs/ft_sum_str.c \
+# 				srcs/ft_check_number.c \
+# 				srcs/ft_check_minmax.c \
+# 				srcs/ft_array_dup.c \
+# 				srcs/ft_sort.c \
+# 				srcs/ft_sort_three.c \
+# 				srcs/ft_sort_four.c \
+# 				srcs/ft_sort_five.c \
+# 				srcs/ft_sort_all.c \
+# 				srcs/ft_check_duplicate.c \
+# 				srcs/ft_check_null.c \
+# 				srcs/tools.c \
+# 				srcs/tools2.c \
+# 				srcs/movement.c \
+# 				srcs/movement2.c 
 				
 NAME		=	push_swap
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra -std=c11 -g
+CFLAGS		=	-Wall -Werror -Wextra -std=c11 -g -Iincludes
 RM			=	rm -f
 OBJS_DIR	= 	objs/
 PROJECT_H	= 	srcs/push_swap.h

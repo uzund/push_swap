@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rra.c                                           :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 03:18:39 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/14 04:37:12 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/17 22:44:49 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/18 22:47:45 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rra(int **arraya, int count)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	**tmp;
+	t_list	*tmp;
 
-	tmp = arraya;
-	while (count--)
+	tmp = lst;
+	while (tmp->next)
 	{
-		if (!((count - 1) < 0) && *tmp[count] < *tmp[count - 1])
-		{
-			ft_sa(tmp[count - 1], tmp[count]);
-		}
+		tmp = tmp->next;
+		if (tmp->next == NULL)
+			return (tmp);
 	}
-	write(1, "rra\n", 4);
+	return (tmp);
 }

@@ -6,12 +6,39 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/14 01:29:00 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/18 21:47:08 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h> // close
+
+static void	ft_sort_master(t_list **stack_a, t_list **stack_b)
+{
+	if (ft_lstsize(*stack_a) <= 5)
+		ft_easy_sort(stack_a, stack_b);
+	else
+		ft_radix_sort(stack_a, stack_b);
+}
+
+static void	ft_first_stack(t_list **stack, int count, char **av)
+{
+	t_list	*new;
+	char	**args;
+	int		i;
+
+	args = av;
+	i = 0;
+	while (args[i])
+	{
+		new = ft_lstnew(ft_atoi(args[i]));
+		ft_lstadd_back(stack, new);
+		i++;
+	}
+	ft_stack_index(stack);
+	if (count == 2)
+		ft_free(args);
+}
 
 int	ft_master_check(char **s)
 {
@@ -63,23 +90,37 @@ int	ft_master_check(char **s)
 	// {
 		printf("-- > Rakam sayısı : %d\n", words);
 		
-		ft_sort_master(arraytmp, words);
+		
 	}
 	return (check * words);
 }
 
 int	main(int ac, char **av)
 {
-	float	*arraya;
+	t_list	**stack_a;
+	t_list	**stack_b;
+	
+	// float	*arraya;
 	// int	*arrayb;
+	char	**arraytmp;
+	char	*ssum;
 	char	**s;
 	int		i;
 	int		check;
+	int		words;
 
 	if (ac > 1)
 	{
 		i = 0;
+		words = 0;
 		s = av;
+		ssum = ft_sum(av);
+		arraytmp = ft_split(ssum);
+		i = -1;
+		while (s[++i])
+		{
+			words += ft_count_words(av[i]);
+		}
 		check = ft_master_check(s);
 		if (!check)
 		{
@@ -88,7 +129,12 @@ int	main(int ac, char **av)
 		}
 		else
 		{
-			arraya = (float *)malloc(sizeof(float) + 1);
+			stack_a = (t_list **)malloc(sizeof(t_list));
+			stack_b = (t_list **)malloc(sizeof(t_list));
+			*stack_a = NULL;
+			*stack_b = NULL;
+			ft_first_stack(stack_a, words, arraytmp);
+			ft_sort_master(stack_a, stack_b);
 
 			printf("Kontrol Başaralı\n");
 		}

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/18 23:31:39 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 00:32:55 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_list
 
 char			*ft_sum_str(char *ssum, const char *s);
 int				ft_check_number(const char *s);
-int				ft_master_check(char **arg);
+int				ft_master_check(char **arraytmp, char *ssum, int words);
 int				ft_check_minmax(char **s);
 char			*ft_sum(char **s);
 int				ft_sort_all(int **arraya, int count);
@@ -73,5 +73,8 @@ t_list			*ft_lstlast(t_list *lst);
 void			ft_lstadd_front(t_list **stack, t_list *new);
 int				ft_lstsize(t_list *lst);
 int				ft_swap(t_list **stack);
+void			ft_print_lst(t_list *lst);
+void			ft_start_sort(char **arraytmp, int words);
+int				ft_words(char **av);
 
 #endif

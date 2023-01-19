@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/18 21:47:08 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 01:28:01 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_first_stack(t_list **stack, int count, char **av)
 	char	**args;
 	int		i;
 
-	args = av;
+	args = av; 
 	i = 0;
 	while (args[i])
 	{
@@ -38,44 +38,58 @@ static void	ft_first_stack(t_list **stack, int count, char **av)
 	ft_stack_index(stack);
 	if (count == 2)
 		ft_free(args);
+	ft_print_lst(*stack); // silmeyi unutma
 }
 
-int	ft_master_check(char **s)
+void	ft_print_lst(t_list *lst)
+{
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp != NULL)
+	{
+		ft_putnbr_fd(tmp->data, 1);
+		ft_putendl_fd("", 1);
+		tmp = tmp->next;
+	}
+}
+
+
+int	ft_master_check(char **arraytmp, char *ssum, int words)
 {
 	char	**arg;
-	char	**arraytmp;
-	char	*ssum;
-	int		words;
 	int		check;
 	int		i;
 
-	arg = s;
-	check = 0;
-	words = 0;
+	check = 1;
 	i = 0;
-	
-	ssum = ft_sum(arg);
-	i = -1;
-
+	arg = arraytmp;
+	// while (i < 10)
+	// {
+	// 	printf("%s ", arg[i]);
+	// 	i++;
+	// }
+		printf("geçti!\n");
 	// check = ft_check_null(&ssum[i]);
 	// if (check == 0)
 	// 	return (0);
 
 	printf("ft_sum : %s\n", ssum);
-	arraytmp = ft_split(ssum);
+	// arraytmp = ft_split(ssum);
 	arg = arraytmp;
 	i = -1;
 	while (arg[++i])
-	{
+	{ 
+		printf("arg[%d] değeri :%s\n", i,  arg[i]);
 		check = ft_check_number(arg[i]);
-		// check = ft_check_null(arg[i]);
+		//check = ft_check_null(arg[i]);
 		if (!check)
 		{
 			printf("Erorr! number :%d\n", check);
 			printf("words :%d\n", words);
 			return (0);
 		}
-		words += ft_count_words(arg[i]);
+		// words += ft_count_words(arg[i]);
 	}
 	printf("Temiz string :%d\n", words);
 	printf("Total words :%d\n", words);
@@ -95,33 +109,47 @@ int	ft_master_check(char **s)
 	return (check * words);
 }
 
-int	main(int ac, char **av)
+void	ft_start_sort(char **arraytmp, int words)
 {
 	t_list	**stack_a;
 	t_list	**stack_b;
-	
-	// float	*arraya;
-	// int	*arrayb;
+
+	stack_a = (t_list **)malloc(sizeof(t_list));
+	stack_b = (t_list **)malloc(sizeof(t_list));
+	*stack_a = NULL;
+	*stack_b = NULL;
+	ft_first_stack(stack_a, words, arraytmp);
+	ft_sort_master(stack_a, stack_b);
+	ft_print_lst(*stack_a); // silmeyi unutma
+}
+
+int	ft_words(char **av)
+{
+	int	i;
+	int	words;
+
+	words = 0;
+	i = -1;
+	while (av[++i])
+		words += ft_count_words(av[i]);
+	return (words);
+}
+
+int	main(int ac, char **av)
+{
 	char	**arraytmp;
 	char	*ssum;
-	char	**s;
-	int		i;
 	int		check;
 	int		words;
 
 	if (ac > 1)
 	{
-		i = 0;
-		words = 0;
-		s = av;
+		words = ft_words(av);
 		ssum = ft_sum(av);
+		printf("karakter diziai %s", ssum);
 		arraytmp = ft_split(ssum);
-		i = -1;
-		while (s[++i])
-		{
-			words += ft_count_words(av[i]);
-		}
-		check = ft_master_check(s);
+		check = ft_master_check(arraytmp, ssum, words);
+
 		if (!check)
 		{
 			write(2, "Error! Check\n", 13);
@@ -129,13 +157,7 @@ int	main(int ac, char **av)
 		}
 		else
 		{
-			stack_a = (t_list **)malloc(sizeof(t_list));
-			stack_b = (t_list **)malloc(sizeof(t_list));
-			*stack_a = NULL;
-			*stack_b = NULL;
-			ft_first_stack(stack_a, words, arraytmp);
-			ft_sort_master(stack_a, stack_b);
-
+			ft_start_sort(arraytmp, words -1);
 			printf("Kontrol Başaralı\n");
 		}
 	}

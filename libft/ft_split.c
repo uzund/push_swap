@@ -6,11 +6,12 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 14:44:16 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/13 18:38:37 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 01:23:38 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h> // silmeyi unutma
 
 char	**ft_split(char *s)
 {
@@ -32,6 +33,7 @@ char	**ft_split(char *s)
 		if (i > k)
 			array[j++] = ft_strndup(s + k, i - k);
 	}
-	array[i] = 0;
+	printf("geldi %d\n",i);
+	array[j] = 0;
 	return (array);
 }

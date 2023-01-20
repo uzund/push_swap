@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 03:39:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/18 22:47:16 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 21:02:58 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ int	ft_swap(t_list **stack)
 		return (-1);
 	lst = *stack;
 	next = lst->next;
-	// if (!lst && !next)
-	// 	ft_error("Error occured while swapping!");
 	tmp_data = lst->data;
 	tmp_index = lst->index;
 	lst->data = next->data;

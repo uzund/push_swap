@@ -5,110 +5,66 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 20:04:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 20:05:55 by duzun            ###   ########.fr       */
+/*   Created: 2023/01/20 20:44:02 by duzun             #+#    #+#             */
+/*   Updated: 2023/01/20 20:45:03 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_check_number(const char *s)
+int	ft_words(char **av)
 {
 	int	i;
-	int	pluscount;
-	int	minuscount;
+	int	words;
 
+	words = 0;
 	i = -1;
-	pluscount = 0;
-	minuscount = 0;
-	while (s[++i] != '\0')
-	{
-		if ((!ft_isdigit(s[i]) && s[i] != '-' && s[i] != '+') && !ft_isin(s[i]))
-			return (0);
-		if (s[i] == '+' || s[i] == '-')
-		{
-			if (i == 0 || !ft_isdigit(s[i - 1]))
-			{
-				if (s[i] == '+')
-					pluscount++;
-				else
-					minuscount++;
-			}
-			else
-				return (0);
-		}
-	}
-	return (!(pluscount > 1 || minuscount > 1));
+	while (av[++i])
+		words += ft_count_words(av[i]);
+	return (words);
 }
 
-int	ft_check_duplicate(char **arraytmp)
+int	ft_null_sort_check(char **av)
 {
-	char	**array;
-	int		i;
-	int		j;
+	int	i;
 
-	array = arraytmp;
-	i = -1;
-	while (array[++i])
+	i = 1;
+	while (av[i])
 	{
-		j = i + 1;
-		while (array[j])
-		{
-			if (ft_strcmp(array[i], array[j]) == 0)
-				return (0);
-			j++;
-		}
+		if (ft_strlen(av[i]) == 0)
+			return (0);
+		else if (ft_strlen(av[i]) == ft_strnspn(av[i], " "))
+			return (0);
+		i++;
+	}
+	if (ft_words(av) <= 2)
+	{
+		return (0);
 	}
 	return (1);
 }
 
-int	ft_check_minmax(char **s)
+int	ft_master_check(char **arraytmp, int words)
 {
 	char	**arg;
 	int		check;
 	int		i;
-	double	minmax;
 
-	arg = s;
-	check = 0;
-	i = -1;
-	while (arg[++i])
-	{
-		minmax = ft_atof(&arg[i][0]);
-		printf("minmax değeri :%.0f\n", minmax);
-		if (minmax < -2147483648 || minmax > 2147483647)
-		{
-			printf("limitlerin üzerinde değer\n");
-			return (0);
-		}
-	}
-	return (1);
-}
-
-int	ft_check_sign(const char *s)
-{
-	int		i;
-	int		count;
-	char	c;
-
-	count = 0;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		c = s[i];
-		if ((c != ' ' && c != '-' && !(c >= '0' && c <= '9')) && \
-			(c != ' ' && c != '+' && !(c >= '0' && c <= '9')))
-			return (0);
-		if (((c == '-' && !(s[i + 1] >= '0' && s[i + 1] <= '9')) || \
-			(i > 0 && c == '-' && !(s[i - 1] == ' '))) || \
-			((c == '+' && !(s[i + 1] >= '0' && s[i + 1] <= '9')) || \
-				(i > 0 && c == '+' && !(s[i - 1] == ' '))))
-			return (0);
-		if (c >= '0' && c <= '9')
-			count++;
-		i++;
-	}
-	if (count == 0)
+	check = 1;
+	arg = arraytmp;
+	if (words <= 1)
 		return (0);
-	return (1);
+	else
+	{
+		i = -1;
+		while (arg[++i])
+		{
+			if (!(ft_check_number(arg[i]) || !(ft_check_sign(arg[i]))) || \
+				(ft_check_order(arraytmp)))
+				return (0);
+		}
+		if (!(ft_check_minmax(arraytmp) || !(ft_check_duplicate(arraytmp))))
+			return (0);
+	}
+	return (check);
 }

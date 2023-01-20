@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:49:11 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 19:42:34 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 21:09:16 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ void	ft_stack_index(t_list **stack)
 		lst = ft_get_next_min(stack);
 	}
 }
-
-
 
 int	ft_get_distance(t_list **stack, int index)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check.c                                         :+:      :+:    :+:   */
+/*   ft_check2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:04:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 20:39:15 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 22:32:51 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,28 +106,5 @@ int	ft_check_sign(const char *s)
 	}
 	if (count == 0)
 		return (0);
-	return (1);
-}
-
-int	ft_check_order(char **arraytmp)
-{
-	char	**array;
-	int		i;
-	int		j;
-	int		nbr;
-
-	array = arraytmp;
-	nbr = array[0][0];
-	i = -1;
-	while (array[++i])
-	{
-		j = i + 1;
-		while (array[j])
-		{
-			if (array[i][j] < nbr)
-				return (0);
-			j++;
-		}
-	}
 	return (1);
 }

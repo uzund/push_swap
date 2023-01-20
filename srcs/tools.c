@@ -6,25 +6,11 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 21:41:01 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/18 23:37:20 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 21:09:02 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// char	*ft_sum(char **s)
-// {
-// 	char	**arg;
-// 	char	*ssum;
-// 	int		i;
-
-// 	arg = s;
-// 	ssum = (char *)malloc(sizeof(char) + 1);
-// 	i = 0;
-// 	while (arg[++i])
-// 		ssum = ft_sum_str(ssum, arg[i]);
-// 	return (ssum);
-// }
 
 void	ft_free(char **s)
 {
@@ -84,4 +70,3 @@ int	ft_is_sorted(t_list **stack)
 	}
 	return (1);
 }
-

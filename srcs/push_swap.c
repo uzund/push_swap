@@ -6,19 +6,25 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 21:00:26 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 22:36:17 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h> // close
 
 static void	ft_sort_master(t_list **stack_a, t_list **stack_b)
 {
-	if (ft_lstsize(*stack_a) <= 5)
-		ft_easy_sort(stack_a, stack_b);
+	if (ft_is_sorted(stack_a))
+	{
+		return ;
+	}
 	else
-		ft_radix_sort(stack_a, stack_b);
+	{
+		if (ft_lstsize(*stack_a) <= 5)
+			ft_easy_sort(stack_a, stack_b);
+		else
+			ft_radix_sort(stack_a, stack_b);
+	}
 }
 
 static void	ft_first_stack(t_list **stack, int count, char **av)

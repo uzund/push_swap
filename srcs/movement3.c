@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:43:35 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/18 23:32:27 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 21:12:17 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,15 @@ int	ft_pb(t_list **stack_a, t_list **stack_b)
 	if (ft_push(stack_b, stack_a) == -1)
 		return (-1);
 	ft_putendl_fd("pb", 1);
+	return (0);
+}
+
+int	ft_rrr(t_list **stack_a, t_list **stack_b)
+{
+	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
+		return (-1);
+	ft_rev_rotate(stack_a);
+	ft_rev_rotate(stack_b);
+	ft_putendl_fd("rrr", 1);
 	return (0);
 }

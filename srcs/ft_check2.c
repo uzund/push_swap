@@ -6,11 +6,12 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:04:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 22:32:51 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 23:00:19 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	ft_check_number(const char *s)
 {
@@ -18,6 +19,7 @@ int	ft_check_number(const char *s)
 	int	pluscount;
 	int	minuscount;
 
+	printf("geldi A \n");
 	i = -1;
 	pluscount = 0;
 	minuscount = 0;
@@ -89,6 +91,7 @@ int	ft_check_sign(const char *s)
 
 	count = 0;
 	i = 0;
+	printf("geldi B\n");
 	while (s[i] != '\0')
 	{
 		c = s[i];
@@ -96,7 +99,7 @@ int	ft_check_sign(const char *s)
 			(c != ' ' && c != '+' && !(c >= '0' && c <= '9')))
 			return (0);
 		if (((c == '-' && !(s[i + 1] >= '0' && s[i + 1] <= '9')) || \
-			(i > 0 && c == '-' && !(s[i - 1] == ' '))) || \
+			(i > 0 && c == '-' && !(s[i - 1] == ' '))) && \
 			((c == '+' && !(s[i + 1] >= '0' && s[i + 1] <= '9')) || \
 				(i > 0 && c == '+' && !(s[i - 1] == ' '))))
 			return (0);

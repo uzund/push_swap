@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 01:28:01 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 17:37:55 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,27 +62,14 @@ int	ft_master_check(char **arraytmp, char *ssum, int words)
 	int		i;
 
 	check = 1;
-	i = 0;
 	arg = arraytmp;
-	// while (i < 10)
-	// {
-	// 	printf("%s ", arg[i]);
-	// 	i++;
-	// }
-		printf("geçti!\n");
-	// check = ft_check_null(&ssum[i]);
-	// if (check == 0)
-	// 	return (0);
-
 	printf("ft_sum : %s\n", ssum);
-	// arraytmp = ft_split(ssum);
-	arg = arraytmp;
 	i = -1;
 	while (arg[++i])
-	{ 
-		printf("arg[%d] değeri :%s\n", i,  arg[i]);
+	{
+		printf("arg[%d] değeri :%s\n", i, arg[i]);
 		check = ft_check_number(arg[i]);
-		//check = ft_check_null(arg[i]);
+		check = ft_check_null(arg[i]);
 		if (!check)
 		{
 			printf("Erorr! number :%d\n", check);
@@ -135,6 +122,22 @@ int	ft_words(char **av)
 	return (words);
 }
 
+int	ft_null_argv_chack(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (ft_strlen(av[i]) == 0)
+			return (0);
+		else if (ft_strlen(av[i]) == ft_strnspn(av[i], " "))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	char	**arraytmp;
@@ -144,21 +147,29 @@ int	main(int ac, char **av)
 
 	if (ac > 1)
 	{
-		words = ft_words(av);
-		ssum = ft_sum(av);
-		printf("karakter diziai %s", ssum);
-		arraytmp = ft_split(ssum);
-		check = ft_master_check(arraytmp, ssum, words);
-
-		if (!check)
+		if (ft_null_argv_chack(av) == 1)
 		{
-			write(2, "Error! Check\n", 13);
-			return (0);
+			words = ft_words(av);
+			ssum = ft_sum(av);
+			// printf("karakter diziai %s", ssum);
+			arraytmp = ft_split(ssum);
+			check = ft_master_check(arraytmp, ssum, words);
+
+			if (!check)
+			{
+				write(2, "Error! Check\n", 13);
+				return (0);
+			}
+			else
+			{
+				ft_start_sort(arraytmp, words -1);
+				printf("Kontrol Başaralı\n");
+			}
 		}
 		else
 		{
-			ft_start_sort(arraytmp, words -1);
-			printf("Kontrol Başaralı\n");
+			write(2, "Error!\n", 7);
+			return (0);
 		}
 	}
 	else

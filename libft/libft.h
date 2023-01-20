@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:51:37 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/18 23:35:21 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 17:37:06 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+size_t	ft_strnspn(const char *s, const char *accept);
+char	*ft_strchr(const char *s, int c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 00:32:55 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 10:54:18 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_list
 	int				data;
 	int				index;
 	struct s_list	*next;
-}				t_list;
+}	t_list;
 
 
 

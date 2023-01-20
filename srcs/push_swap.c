@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 17:37:55 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 20:00:35 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,7 @@ static void	ft_first_stack(t_list **stack, int count, char **av)
 	ft_print_lst(*stack); // silmeyi unutma
 }
 
-void	ft_print_lst(t_list *lst)
-{
-	t_list	*tmp;
-
-	tmp = lst;
-	while (tmp != NULL)
-	{
-		ft_putnbr_fd(tmp->data, 1);
-		ft_putendl_fd("", 1);
-		tmp = tmp->next;
-	}
-}
-
-
-int	ft_master_check(char **arraytmp, char *ssum, int words)
+int	ft_master_check(char **arraytmp, int words)
 {
 	char	**arg;
 	int		check;
@@ -63,37 +49,20 @@ int	ft_master_check(char **arraytmp, char *ssum, int words)
 
 	check = 1;
 	arg = arraytmp;
-	printf("ft_sum : %s\n", ssum);
-	i = -1;
-	while (arg[++i])
-	{
-		printf("arg[%d] değeri :%s\n", i, arg[i]);
-		check = ft_check_number(arg[i]);
-		check = ft_check_null(arg[i]);
-		if (!check)
-		{
-			printf("Erorr! number :%d\n", check);
-			printf("words :%d\n", words);
-			return (0);
-		}
-		// words += ft_count_words(arg[i]);
-	}
-	printf("Temiz string :%d\n", words);
-	printf("Total words :%d\n", words);
 	if (words <= 1)
-		check = 0;
+		return (0);
 	else
 	{
-		check = ft_check_minmax(arraytmp);
-		check = ft_check_duplicate(arraytmp);
-	// }
-	// if (check * words != 0)
-	// {
-		printf("-- > Rakam sayısı : %d\n", words);
-		
-		
+		i = -1;
+		while (arg[++i])
+		{
+			if (!(ft_check_number(arg[i]) || !(ft_check_sign(arg[i]))))
+				return (0);
+		}
+		if (!(ft_check_minmax(arraytmp) || !(ft_check_duplicate(arraytmp))))
+			return (0);
 	}
-	return (check * words);
+	return (check);
 }
 
 void	ft_start_sort(char **arraytmp, int words)
@@ -122,11 +91,11 @@ int	ft_words(char **av)
 	return (words);
 }
 
-int	ft_null_argv_chack(char **av)
+int	ft_null_sort_check(char **av)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (av[i])
 	{
 		if (ft_strlen(av[i]) == 0)
@@ -135,36 +104,36 @@ int	ft_null_argv_chack(char **av)
 			return (0);
 		i++;
 	}
+	if (ft_words(av) <= 2)
+	{
+		return (0);
+	}
 	return (1);
+}
+
+char	**ft_pre_control(char **av)
+{
+	char	**array;
+	char	*ssum;
+
+	ssum = ft_sum(av);
+	array = ft_split(ssum);
+	return (array);
 }
 
 int	main(int ac, char **av)
 {
-	char	**arraytmp;
-	char	*ssum;
-	int		check;
-	int		words;
-
 	if (ac > 1)
 	{
-		if (ft_null_argv_chack(av) == 1)
+		if (ft_null_sort_check(av) == 1)
 		{
-			words = ft_words(av);
-			ssum = ft_sum(av);
-			// printf("karakter diziai %s", ssum);
-			arraytmp = ft_split(ssum);
-			check = ft_master_check(arraytmp, ssum, words);
-
-			if (!check)
+			if (!(ft_master_check(ft_pre_control(av), ft_words(av))))
 			{
 				write(2, "Error! Check\n", 13);
 				return (0);
 			}
 			else
-			{
-				ft_start_sort(arraytmp, words -1);
-				printf("Kontrol Başaralı\n");
-			}
+				ft_start_sort(ft_pre_control(av), ft_words(av) - 1);
 		}
 		else
 		{

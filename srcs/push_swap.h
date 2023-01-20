@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 10:54:18 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 19:19:10 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_list
 
 char			*ft_sum_str(char *ssum, const char *s);
 int				ft_check_number(const char *s);
-int				ft_master_check(char **arraytmp, char *ssum, int words);
+int				ft_master_check(char **arraytmp, int words);
 int				ft_check_minmax(char **s);
 char			*ft_sum(char **s);
 int				ft_sort_all(int **arraya, int count);
@@ -35,7 +35,7 @@ void			ft_sort_five(t_list **stack_a, t_list **stack_b);
 // static void		ft_sort_four(t_list **stack_a, t_list **stack_b);
 // static void		ft_sort_three(t_list **stack_a);
 int				ft_check_duplicate(char **arraytmp);
-int				ft_check_null(const char *s);
+int				ft_check_sign(const char *s);
 int				ft_sa(t_list **stack_a);
 int				ft_sb(t_list **stack_b);
 int				ft_ss(t_list **stack_a, t_list **stack_b);
@@ -76,5 +76,5 @@ int				ft_swap(t_list **stack);
 void			ft_print_lst(t_list *lst);
 void			ft_start_sort(char **arraytmp, int words);
 int				ft_words(char **av);
-
+int				ft_null_sort_check(char **av);
 #endif

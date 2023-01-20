@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:49:11 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/18 23:21:27 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/20 19:42:34 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,17 @@ int	ft_get_distance(t_list **stack, int index)
 		lst = lst->next;
 	}
 	return (distance);
+}
+
+void	ft_print_lst(t_list *lst)
+{
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp != NULL)
+	{
+		ft_putnbr_fd(tmp->data, 1);
+		ft_putendl_fd("", 1);
+		tmp = tmp->next;
+	}
 }

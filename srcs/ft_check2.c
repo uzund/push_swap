@@ -6,12 +6,11 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:04:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 23:00:19 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/23 20:30:23 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	ft_check_number(const char *s)
 {
@@ -19,7 +18,6 @@ int	ft_check_number(const char *s)
 	int	pluscount;
 	int	minuscount;
 
-	printf("geldi A \n");
 	i = -1;
 	pluscount = 0;
 	minuscount = 0;
@@ -91,7 +89,6 @@ int	ft_check_sign(const char *s)
 
 	count = 0;
 	i = 0;
-	printf("geldi B\n");
 	while (s[i] != '\0')
 	{
 		c = s[i];

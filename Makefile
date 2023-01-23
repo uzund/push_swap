@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:23:07 by duzun             #+#    #+#              #
-#    Updated: 2023/01/18 21:59:56 by duzun            ###   ########.fr        #
+#    Updated: 2023/01/23 20:32:29 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,22 +17,6 @@ RESET		= \033[0m
 END			= \e[0m
 
 SRCS =  $(wildcard srcs/*.c)
-# SRCS		= 	srcs/push_swap.c \
-# 				srcs/ft_sum_str.c \
-# 				srcs/ft_check_number.c \
-# 				srcs/ft_check_minmax.c \
-# 				srcs/ft_array_dup.c \
-# 				srcs/ft_sort.c \
-# 				srcs/ft_sort_three.c \
-# 				srcs/ft_sort_four.c \
-# 				srcs/ft_sort_five.c \
-# 				srcs/ft_sort_all.c \
-# 				srcs/ft_check_duplicate.c \
-# 				srcs/ft_check_null.c \
-# 				srcs/tools.c \
-# 				srcs/tools2.c \
-# 				srcs/movement.c \
-# 				srcs/movement2.c 
 				
 NAME		=	push_swap
 CC			=	gcc

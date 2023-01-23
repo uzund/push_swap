@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:44:02 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 22:57:50 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/23 20:28:37 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,16 @@ int	ft_master_check(char **arraytmp, int words)
 		i = -1;
 		while (arg[++i])
 		{
-			if (!(ft_check_number(arg[i]) || !(ft_check_sign(arg[i]))))
+			if (!ft_check_number(arg[i]))
+				return (0);
+			else if (!ft_check_sign(arg[i]))
 				return (0);
 		}
-		if (!(ft_check_minmax(arraytmp) || !(ft_check_duplicate(arraytmp))))
+		if (!ft_check_minmax(arraytmp))
+			return (0);
+		else if (!ft_check_duplicate(arraytmp))
 			return (0);
 	}
 	return (check);
 }
+

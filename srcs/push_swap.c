@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 22:36:17 by duzun            ###   ########.fr       */
+/*   Updated: 2023/01/23 20:31:37 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	ft_first_stack(t_list **stack, int count, char **av)
 	ft_stack_index(stack);
 	if (count == 2)
 		ft_free(args);
-	ft_print_lst(*stack); // silmeyi unutma
+	// ft_print_lst(*stack); // silmeyi unutma
 }
 
 void	ft_start_sort(char **arraytmp, int words)
@@ -58,7 +58,7 @@ void	ft_start_sort(char **arraytmp, int words)
 	*stack_b = NULL;
 	ft_first_stack(stack_a, words, arraytmp);
 	ft_sort_master(stack_a, stack_b);
-	ft_print_lst(*stack_a); // silmeyi unutma
+	// ft_print_lst(*stack_a); // silmeyi unutma
 }
 
 char	**ft_pre_control(char **av)

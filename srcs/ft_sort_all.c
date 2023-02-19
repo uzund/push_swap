@@ -6,15 +6,15 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:19:55 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/18 20:46:40 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/19 23:38:25 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_get_max_bits(t_list **stack)
+static int	ft_get_max_bits(t_stack **stack)
 {
-	t_list	*lst;
+	t_stack	*lst;
 	int		max;
 	int		max_bits;
 
@@ -32,31 +32,58 @@ static int	ft_get_max_bits(t_list **stack)
 	return (max_bits);
 }
 
-void	ft_radix_sort(t_list **stack_a, t_list **stack_b)
+void	ft_radix_sort(t_info *info)
 {
-	t_list	*lst_a;
+	t_stack	*lst_a;
 	int		i;
 	int		j;
 	int		size;
 	int		max_bits;
 
 	i = 0;
-	lst_a = *stack_a;
+	lst_a = info->stack_a;
 	size = ft_lstsize(lst_a);
-	max_bits = ft_get_max_bits(stack_a);
+	max_bits = ft_get_max_bits(&info->stack_a);
 	while (i < max_bits)
 	{
 		j = 0;
 		while (j++ < size)
 		{
-			lst_a = *stack_a;
+			lst_a = info->stack_a;
 			if (((lst_a->index >> i) & 1) == 1)
-				ft_ra(stack_a);
+				ft_ra(info);
 			else
-				ft_pb(stack_a, stack_b);
+				ft_pb(info);
 		}
-		while (ft_lstsize(*stack_b) != 0)
-			ft_pa(stack_a, stack_b);
+		while (ft_lstsize(info->stack_b) != 0)
+			ft_pa(info);
 		i++;
+	}
+}
+
+void	ft_sort_three_2(t_info *info, t_stack *lst, int min, int next_min)
+{
+	if (lst->index == min && lst->next->index != next_min)
+	{
+		ft_ra(info);
+		ft_sa(info);
+		ft_rra(info);
+	}
+	else if (lst->index == next_min)
+	{
+		if (lst->next->index == min)
+			ft_sa(info);
+		else
+			ft_rra(info);
+	}
+	else
+	{
+		if (lst->next->index == min)
+			ft_ra(info);
+		else
+		{
+			ft_sa(info);
+			ft_rra(info);
+		}
 	}
 }

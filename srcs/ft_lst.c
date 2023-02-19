@@ -6,38 +6,15 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 22:39:48 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 20:08:47 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/20 00:33:11 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_back(t_list **stack, t_list *new)
+void	*ft_lstlast(t_stack *lst)
 {
-	t_list	*last;
-
-	if (*stack)
-	{
-		last = ft_lstlast(*stack);
-		last->next = new;
-		new->next = NULL;
-	}
-	else
-	{
-		*stack = new;
-		(*stack)->next = NULL;
-	}
-}
-
-void	ft_lstadd_front(t_list **stack, t_list *new)
-{
-	new->next = *stack;
-	*stack = new;
-}
-
-t_list	*ft_lstlast(t_list *lst)
-{
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	tmp = lst;
 	while (tmp->next)
@@ -49,23 +26,10 @@ t_list	*ft_lstlast(t_list *lst)
 	return (tmp);
 }
 
-t_list	*ft_lstnew(int data)
-{
-	t_list	*new;
-
-	new = (t_list *)malloc(sizeof(*new));
-	if (!new)
-		return (NULL);
-	new->data = data;
-	new->index = -1;
-	new->next = NULL;
-	return (new);
-}
-
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_stack *lst)
 {
 	size_t	cont;
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	tmp = lst;
 	cont = 0;
@@ -76,6 +40,3 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (cont);
 }
-
-
-

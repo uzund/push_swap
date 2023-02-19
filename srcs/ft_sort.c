@@ -6,15 +6,15 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:10:33 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 22:37:30 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/20 00:23:03 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_get_min(t_list **stack, int n)
+static int	ft_get_min(t_stack **stack, int n)
 {
-	t_list	*lst;
+	t_stack	*lst;
 	int		min;
 
 	lst = *stack;
@@ -28,100 +28,86 @@ static int	ft_get_min(t_list **stack, int n)
 	return (min);
 }
 
-static void	ft_sort_three(t_list **stack_a)
+static void	ft_sort_three(t_info *info)
 {
-	t_list	*lst;
+	t_stack	*lst;
 	int		min;
 	int		next_min;
 
-	lst = *stack_a;
-	min = ft_get_min(stack_a, -1);
-	next_min = ft_get_min(stack_a, min);
-	if (lst->index == min && lst->next->index != next_min)
-	{
-		ft_ra(stack_a);
-		ft_sa(stack_a);
-		ft_rra(stack_a);
-	}
-	else if (lst->index == next_min)
-	{
-		if (lst->next->index == min)
-			ft_sa(stack_a);
-		else
-			ft_rra(stack_a);
-	}
-	else
-	{
-		if (lst->next->index == min)
-			ft_ra(stack_a);
-		else
-		{
-			ft_sa(stack_a);
-			ft_rra(stack_a);
-		}
-	}
+	lst = info->stack_a;
+	min = ft_get_min(&info->stack_a, -1);
+	next_min = ft_get_min(&info->stack_a, min);
+	ft_sort_three_2(info, lst, min, next_min);
 }
 
-static void	ft_sort_four(t_list **stack_a, t_list **stack_b)
+static void	ft_sort_four(t_info *info)
 {
 	int	distance;
 
-	if (ft_is_sorted(stack_a))
+	if (ft_is_sorted(info))
+	{
 		return ;
-	distance = ft_get_distance(stack_a, ft_get_min(stack_a, -1));
+	}
+	distance = ft_get_distance(&info->stack_a, ft_get_min(&info->stack_a, -1));
 	if (distance == 1)
-		ft_ra(stack_a);
+		ft_ra(info);
 	else if (distance == 2)
 	{
-		ft_ra(stack_a);
-		ft_ra(stack_a);
+		ft_ra(info);
+		ft_ra(info);
 	}
 	else if (distance == 3)
-		ft_rra(stack_a);
-	if (ft_is_sorted(stack_a))
+		ft_rra(info);
+	if (ft_is_sorted(info))
 		return ;
-	ft_pb(stack_a, stack_b);
-	ft_sort_three(stack_a);
-	ft_pa(stack_a, stack_b);
+	ft_pb(info);
+	ft_sort_three(info);
+	ft_pa(info);
 }
 
-void	ft_sort_five(t_list **stack_a, t_list **stack_b)
+void	ft_sort_five(t_info *info)
 {
 	int	distance;
 
-	distance = ft_get_distance(stack_a, ft_get_min(stack_a, -1));
+	distance = ft_get_distance(&info->stack_a, ft_get_min(&info->stack_a, -1));
 	if (distance == 1)
-		ft_ra(stack_a);
+		ft_ra(info);
 	else if (distance == 2)
 	{
-		ft_ra(stack_a);
-		ft_ra(stack_a);
+		ft_ra(info);
+		ft_ra(info);
 	}
 	else if (distance == 3)
 	{
-		ft_rra(stack_a);
-		ft_rra(stack_a);
+		ft_rra(info);
+		ft_rra(info);	
 	}
 	else if (distance == 4)
-		ft_rra(stack_a);
-	if (ft_is_sorted(stack_a))
+		ft_rra(info);
+	if (ft_is_sorted(info))
 		return ;
-	ft_pb(stack_a, stack_b);
-	ft_sort_four(stack_a, stack_b);
-	ft_pa(stack_a, stack_b);
+	ft_pb(info);
+	ft_sort_four(info);
+	ft_pa(info);
 }
 
-void	ft_easy_sort(t_list **stack_a, t_list **stack_b)
+void	ft_easy_sort(t_info *info)
 {
 	int	size;
 
-	size = ft_lstsize(*stack_a);
+	size = ft_lstsize(info->stack_a);
 	if (size == 2)
-		ft_sa(stack_a);
+		ft_sa(info);
 	else if (size == 3)
-		ft_sort_three(stack_a);
+	{
+		ft_sort_three(info);
+	}		
 	else if (size == 4)
-		ft_sort_four(stack_a, stack_b);
+	{
+		ft_sort_four(info);
+	}		
 	else if (size == 5)
-		ft_sort_five(stack_a, stack_b);
+	{
+		ft_sort_five(info);
+	}
 }

@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:45:00 by duzun             #+#    #+#              #
-#    Updated: 2023/01/23 20:50:08 by duzun            ###   ########.fr        #
+#    Updated: 2023/02/19 21:09:15 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ all:				$(NAME)
 
 $(NAME):			$(OBJS)
 					ar rcs $(NAME) $(OBJS)
-					@echo "Libft Done !"
+					@echo "\n✅ Libft Done!"
 clean:	
 					$(RM) $(OBJS) $(BONUS_OBJS)
 

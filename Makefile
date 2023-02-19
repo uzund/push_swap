@@ -6,7 +6,7 @@
 #    By: duzun <davut@uzun.ist>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/12 11:23:07 by duzun             #+#    #+#              #
-#    Updated: 2023/01/23 20:32:29 by duzun            ###   ########.fr        #
+#    Updated: 2023/02/19 21:31:22 by duzun            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ RED			= \033[0;31m
 GREEN		= \033[0;32m
 BLUE		= \033[0;34m
 RESET		= \033[0m
-END			= \e[0m
+END			= \033[0m
 
 SRCS =  $(wildcard srcs/*.c)
 				
 NAME		=	push_swap
 CC			=	gcc
-CFLAGS		=	-Wall -Werror -Wextra -std=c11 -g -Iincludes
+CFLAGS		=	-Wall -Werror -Wextra -std=c11 -g -I includes
 RM			=	rm -f
 OBJS_DIR	= 	objs/
 PROJECT_H	= 	srcs/push_swap.h
@@ -31,14 +31,14 @@ $(OBJS_DIR)%.o : %.c $(PROJECT_H)
 	@mkdir -p $(OBJS_DIR)
 	@mkdir -p $(OBJS_DIR)srcs
 	@$(CC) $(CFLAGS) -c $< -o $@
-	@printf	"\033[2K\r${RED}[DERLENİYOR! / COMPILING!]${RESET} '$<' $(END)"
+	@printf	"\033[2K\r📶 ${RED}[DERLENİYOR! / COMPILING!]${RESET} '$<' $(END)"
 
 $(NAME): $(OBJECTS_PREFIXED) makerun
 	@$(CC) -o $(NAME) $(OBJECTS_PREFIXED) $(CFLAGS) ./libft/libft.a
-	@printf "\033[2K\r${GREEN}[KURULUM TAMAMLANDI]${BLUE} -- >${RED} $(NAME) ${BLUE}< --${RESET}$(END)\a\n"
-	@printf "\033[2K\r${RED}Çalıştırmak için: ${BLUE} ./push_swap <arguman> ${GREEN} // örnek: ./push_swap 8 3 5 1 9)${RESET}$(END)\n"
-	@printf "\033[2K\r${GREEN}[INSTALLATION COMPLETED]${BLUE} -- >${RED} $(NAME) ${BLUE}< --${RESET}$(END)\a\n"
-	@printf "\033[2K\r${RED}To make it work: ${BLUE} ./push_swap <arguman> ${GREEN} // ./push_swap 8 3 5 1 9)${RESET}$(END)\n"
+	@echo "\n✅ ${GREEN}Çalıştırılabilir "push_swap" oluşturuldu ve kullanıma hazır!${BLUE} -- >${RED} $(NAME) ${BLUE}< --${RESET}$(END)"
+	@echo " ${RED}Çalıştırmak için: ${BLUE}./push_swap <arguman> ${GREEN}  örnek: ./push_swap 8 3 5 1 -9${RESET}$(END)"
+	@echo "\n✅ ${GREEN}Executable "push_swap" created and ready for use!${BLUE} -- >${RED} $(NAME) ${BLUE}< --${RESET}$(END)"
+	@echo "${RED}To make it work: ${BLUE} ./push_swap <arguman> ${GREEN}  example: ./push_swap 8 3 5 1 -9${RESET}$(END)\n"
 
 all: $(NAME)	
 
@@ -48,12 +48,14 @@ makerun:
 clean:
 	@make clean -C ./libft
 	@rm -rf $(OBJS_DIR)
-	@printf "\033[2K\r${GREEN}[CLEAN]${RED}[TAMAMLANDI / COMPLETED]${RESET}$(END)\a\n"
+	@echo "\n🧽 ${GREEN}Clean: ${RED}Tüm \".o\" dosyaları kaldırıldı${RESET}$(END)"
+	@echo "🧽 $(GREEN)Clean: $(RESET)Removed all the \".o\" files \n"
 
 fclean: clean
 	@make fclean -C ./libft
 	@rm -f $(NAME)
-	@printf "\033[2K\r${GREEN}[FCLEAN]${RED}[TAMAMLANDI / COMPLETED]${RESET}$(END)\a\n"
+	@echo "\n🧽 ${GREEN}Fclean: ${RED}Yürütülebilir dosyalar kaldırıldı${RESET}$(END)"
+	@echo "🧽 $(GREEN)Fclean: $(RESET)Removed the executables \n"
 	
 re:	fclean all
 				

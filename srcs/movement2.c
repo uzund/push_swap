@@ -6,16 +6,16 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:02:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 21:10:43 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/20 00:35:22 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_rotate(t_list **stack)
+int	ft_rotate(t_stack **stack)
 {
-	t_list	*lst;
-	t_list	*tail;
+	t_stack	*lst;
+	t_stack	*tail;
 
 	if (ft_lstsize(*stack) < 2)
 		return (-1);
@@ -27,21 +27,20 @@ int	ft_rotate(t_list **stack)
 	return (0);
 }
 
-
-int	ft_rr(t_list **stack_a, t_list **stack_b)
+int	ft_rr(t_info *info)
 {
-	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
+	if ((ft_lstsize(info->stack_a) < 2) || (ft_lstsize(info->stack_b) < 2))
 		return (-1);
-	ft_rotate(stack_a);
-	ft_rotate(stack_b);
+	ft_rotate(&info->stack_a);
+	ft_rotate(&info->stack_b);
 	ft_putendl_fd("rr", 1);
 	return (0);
 }
 
-int	ft_rev_rotate(t_list **stack)
+int	ft_rev_rotate(t_stack **stack)
 {
-	t_list	*lst;
-	t_list	*tail;
+	t_stack	*lst;
+	t_stack	*tail;
 
 	if (ft_lstsize(*stack) < 2)
 		return (-1);
@@ -61,17 +60,17 @@ int	ft_rev_rotate(t_list **stack)
 	return (0);
 }
 
-int	ft_rra(t_list **stack_a)
+int	ft_rra(t_info *info)
 {
-	if (ft_rev_rotate(stack_a) == -1)
+	if (ft_rev_rotate(&info->stack_a) == -1)
 		return (-1);
 	ft_putendl_fd("rra", 1);
 	return (0);
 }
 
-int	ft_rrb(t_list **stack_b)
+int	ft_rrb(t_info *info)
 {
-	if (ft_rev_rotate(stack_b) == -1)
+	if (ft_rev_rotate(&info->stack_b) == -1)
 		return (-1);
 	ft_putendl_fd("rrb", 1);
 	return (0);

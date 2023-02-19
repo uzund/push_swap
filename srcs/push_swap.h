@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/20 21:00:49 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/20 00:37:55 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,63 +16,65 @@
 # include <stdio.h>
 # include "../libft/libft.h"
 
-typedef struct s_list
+typedef struct s_stack
 {
-	int				data;
+	int				value;
 	int				index;
-	struct s_list	*next;
-}	t_list;
+	struct s_stack	*next;
+}	t_stack;
 
-int				ft_sa(t_list **stack_a);
-int				ft_sb(t_list **stack_b);
-int				ft_ss(t_list **stack_a, t_list **stack_b);
-int				ft_pa(t_list **stack_a, t_list **stack_b);
-int				ft_pb(t_list **stack_a, t_list **stack_b);
-int				ft_ra(t_list **stack_a);
-int				ft_rb(t_list **stack_b);
-int				ft_rr(t_list **stack_a, t_list **stack_b);
-int				ft_rra(t_list **stack_a);
-int				ft_rrb(t_list **stack_b);
-int				ft_rrr(t_list **stack_a, t_list **stack_b);
+typedef struct s_info
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		len_a;
+	int		max;
+}	t_info;
 
-int				ft_swap(t_list **stack);
-int				ft_rotate(t_list **stack);
-int				ft_rev_rotate(t_list **stack);
-int				ft_push(t_list **stack_point_a, t_list **stack_point_b);
+int				ft_sa(t_info *info);
+int				ft_sb(t_info *info);
+int				ft_ss(t_info *info);
+int				ft_pa(t_info *info);
+int				ft_pb(t_info *info);
+int				ft_ra(t_info *info);
+int				ft_rb(t_info *info);
+int				ft_rr(t_info *info);
+int				ft_rra(t_info *info);
+int				ft_rrb(t_info *info);
+int				ft_rrr(t_info *info);
+int				ft_swap(t_stack **stack);
+int				ft_rotate(t_stack **stack);
+int				ft_rev_rotate(t_stack **stack);
+int				ft_push(t_stack **stack_point_a, t_stack **stack_point_b);
 
-void			ft_start_sort(char **arraytmp, int words);
-int				ft_sort_all(int **arraya, int count);
-void			ft_easy_sort(t_list **stack_a, t_list **stack_b);
-void			ft_sort_five(t_list **stack_a, t_list **stack_b);
-void			ft_radix_sort(t_list **stack_a, t_list **stack_b);
-
-char			*ft_sum_str(char *ssum, const char *s);
+void			ft_easy_sort(t_info *info);
+void			ft_sort_three_2(t_info *info, t_stack *lst, int min, \
+				int next_min);
+void    		ft_radix_sort(t_info *info);
 int				ft_check_number(const char *s);
 int				ft_master_check(char **arraytmp, int words);
 int				ft_check_minmax(char **s);
-char			*ft_sum(char **s);
-
 int				ft_check_duplicate(char **arraytmp);
 int				ft_check_sign(const char *s);
 int				ft_null_sort_check(char **av);
-int				ft_check_order(char **arraytmp);
 int				ft_words(char **av);
+char			*ft_sum(char **s);
+char			*ft_sum_str(char *ssum, const char *s);
 
-int				ft_is_sorted(t_list **stack);
-int				ft_get_distance(t_list **stack, int index);
-void			ft_stack_index(t_list **stack);
-void			ft_stack_index(t_list **stack);
-void			ft_free_stack(t_list **stack);
+int				ft_is_sorted(t_info *info);
+int				ft_get_distance(t_stack **stack, int index);
+void			ft_stack_index(t_stack **stack);
+void			ft_free_stack(t_stack **stack);
+// void			ft_free(char **s);
 
-t_list			*ft_lstnew(int content);
-void			ft_lstadd_back(t_list **stack, t_list *new);
-t_list			*ft_lstlast(t_list *lst);
-void			ft_lstadd_front(t_list **stack, t_list *new);
-int				ft_lstsize(t_list *lst);
+void			*ft_lstlast(t_stack *lst);
+int				ft_lstsize(t_stack *lst);
+void			ft_print_lst(t_stack *lst);
 
-void			ft_print_lst(t_list *lst);
-void			ft_error(char *msg);
-void			ft_free(char **s);
-void			ft_put_list(t_list *lst);
-
+char			**ft_array_init(char **av);
+void			ft_init_stacks(t_info *info);
+void			ft_create_stacks(t_info *info,char **arraytmp, int list_size);
+void			ft_init_index(t_info *info);
+int				ft_find_max_index(t_info *info);
+void			ft_find_max(t_info *info);
 #endif

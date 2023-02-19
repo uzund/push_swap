@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:44:02 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/23 20:28:37 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/20 00:12:06 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,12 @@ int	ft_master_check(char **arraytmp, int words)
 	return (check);
 }
 
+char	**ft_array_init(char **av)
+{
+	char	**arraytmp;
+	char	*ssum;
+
+	ssum = ft_sum(av);
+	arraytmp = ft_split(ssum, ' ');
+	return (arraytmp);
+}

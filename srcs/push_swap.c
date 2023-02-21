@@ -6,51 +6,51 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/20 00:36:10 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 00:08:00 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_sort_master(t_info *info)
+static void	ft_sort_master(t_list *data)
 {
-	if (ft_is_sorted(info))
+	if (ft_is_sorted(data))
 	{
 		return ;
 	}
 	else
 	{
-		if (ft_lstsize(info->stack_a) <= 5)
-			ft_easy_sort(info);
+		if (ft_lstsize(data->stack_a) <= 5)
+			ft_easy_sort(data);
 	}
 }
 
-void	ft_free_stacks(t_info *info)
+void	ft_free_stacks(t_list *data)
 {
 	t_stack	*temp;
 
-	while (info->stack_a)
+	while (data->stack_a)
 	{
-		temp = info->stack_a;
-		info->stack_a = temp->next;
+		temp = data->stack_a;
+		data->stack_a = temp->next;
 		free(temp);
 	}
 }
 
-void	ft_sort(t_info *info, int words)
+void	ft_sort(t_list *data, int words)
 {
 	if (words <= 5)
-		ft_sort_master(info);
+		ft_sort_master(data);
 	else
 	{
-		ft_init_index(info);
-		ft_radix_sort(info);
-		// ft_print_lst(info.stack_a);			
+		ft_init_index(data);
+		ft_radix_sort(data);
+		// ft_print_lst(data.stack_a);			
 	}
-	ft_free_stacks(info);
+	ft_free_stacks(data);
 }
 
-int	ft_start(t_info *info, char **av, char	**prearray, int words)
+int	ft_start(t_list *data, char **av, char	**prearray, int words)
 {
 	if (ft_null_sort_check(av) == 1)
 	{
@@ -58,26 +58,26 @@ int	ft_start(t_info *info, char **av, char	**prearray, int words)
 		if (!(ft_master_check(prearray, words)))
 		{
 			write(2, "Error!\n", 7);
-			return (0);
+			exit(EXIT_FAILURE);
 		}
 		else
 		{
-			ft_init_stacks(info);	
-			ft_create_stacks(info, prearray, words);
+			ft_init_stacks(data);	
+			ft_create_stacks(data, prearray, words);
 		}
-		ft_sort(info, words);
+		ft_sort(data, words);
 	}
 	else
 	{
 		write(2, "Error!\n", 7);
-		return (0);
+		exit(EXIT_FAILURE);
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 int	main(int ac, char **av)
 {
-	t_info	info;
+	t_list	data;
 	int		words;
 	char	**prearray;
 
@@ -87,6 +87,6 @@ int	main(int ac, char **av)
 	else
 	{
 		words = ft_words(av) - 1;
-		ft_start(&info, av, prearray, words);
+		ft_start(&data, av, prearray, words);
 	}
 }

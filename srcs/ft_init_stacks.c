@@ -6,28 +6,28 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 00:20:23 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/20 00:20:42 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 00:01:53 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_init_stacks(t_info *info)
+void	ft_init_stacks(t_list *data)
 {
-	info->stack_a = NULL;
-	info->stack_b = NULL;
-	info->len_a = 0;
-	info->max = 0;
+	data->stack_a = NULL;
+	data->stack_b = NULL;
+	data->len_a = 0;
+	data->max = 0;
 }
 
-void	ft_create_stacks(t_info *info, char **prearray, int list_size)
+void	ft_create_stacks(t_list *data, char **prearray, int list_size)
 {
 	int		i;
 	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
-	info->stack_a = new;
-	info->len_a = list_size;
+	data->stack_a = new;
+	data->len_a = list_size;
 	i = 0;
 	while (i < list_size)
 	{
@@ -43,20 +43,20 @@ void	ft_create_stacks(t_info *info, char **prearray, int list_size)
 	}
 }
 
-void	ft_init_index(t_info *info)
+void	ft_init_index(t_list *data)
 {
 	t_stack	*temp;
 	t_stack	*temp_min;
 	int		index;
 	int		min;
 
-	ft_find_max(info);
-	temp = info->stack_a;
+	ft_find_max(data);
+	temp = data->stack_a;
 	temp_min = NULL;
 	index = 1;
-	while (index <= info->len_a)
+	while (index <= data->len_a)
 	{
-		min = info->max;
+		min = data->max;
 		while (temp)
 		{
 			if (temp->value <= min && temp->index == 0)
@@ -67,17 +67,17 @@ void	ft_init_index(t_info *info)
 			temp = temp->next;
 		}
 		temp_min->index = index;
-		temp = info->stack_a;
+		temp = data->stack_a;
 		index++;
 	}
 }
 
-void	ft_find_max(t_info *info)
+void	ft_find_max(t_list *data)
 {
 	t_stack	*temp;
 	int		max;
 
-	temp = info->stack_a;
+	temp = data->stack_a;
 	max = temp->value;
 	while (temp)
 	{
@@ -85,5 +85,5 @@ void	ft_find_max(t_info *info)
 			max = temp->value;
 		temp = temp->next;
 	}
-	info->max = max;
+	data->max = max;
 }

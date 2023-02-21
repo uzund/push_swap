@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 21:41:01 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/20 00:28:45 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 00:03:54 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ void	ft_free_stack(t_stack **stack)
 	free(stack);
 }
 
-int	ft_is_sorted(t_info *info)
+int	ft_is_sorted(t_list *data)
 {
 	t_stack	*lst;
 
-	lst = info->stack_a;
+	lst = data->stack_a;
 	while (lst && lst->next)
 	{
 		if (lst->value > lst->next->value)

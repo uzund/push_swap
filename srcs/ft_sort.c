@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:10:33 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/20 00:23:03 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 00:02:43 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,86 +28,86 @@ static int	ft_get_min(t_stack **stack, int n)
 	return (min);
 }
 
-static void	ft_sort_three(t_info *info)
+static void	ft_sort_three(t_list *data)
 {
 	t_stack	*lst;
 	int		min;
 	int		next_min;
 
-	lst = info->stack_a;
-	min = ft_get_min(&info->stack_a, -1);
-	next_min = ft_get_min(&info->stack_a, min);
-	ft_sort_three_2(info, lst, min, next_min);
+	lst = data->stack_a;
+	min = ft_get_min(&data->stack_a, -1);
+	next_min = ft_get_min(&data->stack_a, min);
+	ft_sort_three_2(data, lst, min, next_min);
 }
 
-static void	ft_sort_four(t_info *info)
+static void	ft_sort_four(t_list *data)
 {
 	int	distance;
 
-	if (ft_is_sorted(info))
+	if (ft_is_sorted(data))
 	{
 		return ;
 	}
-	distance = ft_get_distance(&info->stack_a, ft_get_min(&info->stack_a, -1));
+	distance = ft_get_distance(&data->stack_a, ft_get_min(&data->stack_a, -1));
 	if (distance == 1)
-		ft_ra(info);
+		ft_ra(data);
 	else if (distance == 2)
 	{
-		ft_ra(info);
-		ft_ra(info);
+		ft_ra(data);
+		ft_ra(data);
 	}
 	else if (distance == 3)
-		ft_rra(info);
-	if (ft_is_sorted(info))
+		ft_rra(data);
+	if (ft_is_sorted(data))
 		return ;
-	ft_pb(info);
-	ft_sort_three(info);
-	ft_pa(info);
+	ft_pb(data);
+	ft_sort_three(data);
+	ft_pa(data);
 }
 
-void	ft_sort_five(t_info *info)
+void	ft_sort_five(t_list *data)
 {
 	int	distance;
 
-	distance = ft_get_distance(&info->stack_a, ft_get_min(&info->stack_a, -1));
+	distance = ft_get_distance(&data->stack_a, ft_get_min(&data->stack_a, -1));
 	if (distance == 1)
-		ft_ra(info);
+		ft_ra(data);
 	else if (distance == 2)
 	{
-		ft_ra(info);
-		ft_ra(info);
+		ft_ra(data);
+		ft_ra(data);
 	}
 	else if (distance == 3)
 	{
-		ft_rra(info);
-		ft_rra(info);	
+		ft_rra(data);
+		ft_rra(data);	
 	}
 	else if (distance == 4)
-		ft_rra(info);
-	if (ft_is_sorted(info))
+		ft_rra(data);
+	if (ft_is_sorted(data))
 		return ;
-	ft_pb(info);
-	ft_sort_four(info);
-	ft_pa(info);
+	ft_pb(data);
+	ft_sort_four(data);
+	ft_pa(data);
 }
 
-void	ft_easy_sort(t_info *info)
+void	ft_easy_sort(t_list *data)
 {
 	int	size;
 
-	size = ft_lstsize(info->stack_a);
+	size = ft_lstsize(data->stack_a);
 	if (size == 2)
-		ft_sa(info);
+		ft_sa(data);
 	else if (size == 3)
 	{
-		ft_sort_three(info);
+		ft_sort_three(data);
 	}		
 	else if (size == 4)
 	{
-		ft_sort_four(info);
+		ft_sort_four(data);
 	}		
 	else if (size == 5)
 	{
-		ft_sort_five(info);
+		ft_sort_five(data);
 	}
 }

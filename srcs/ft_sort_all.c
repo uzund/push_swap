@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:19:55 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/19 23:38:25 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 00:02:11 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	ft_get_max_bits(t_stack **stack)
 	return (max_bits);
 }
 
-void	ft_radix_sort(t_info *info)
+void	ft_radix_sort(t_list *data)
 {
 	t_stack	*lst_a;
 	int		i;
@@ -41,49 +41,49 @@ void	ft_radix_sort(t_info *info)
 	int		max_bits;
 
 	i = 0;
-	lst_a = info->stack_a;
+	lst_a = data->stack_a;
 	size = ft_lstsize(lst_a);
-	max_bits = ft_get_max_bits(&info->stack_a);
+	max_bits = ft_get_max_bits(&data->stack_a);
 	while (i < max_bits)
 	{
 		j = 0;
 		while (j++ < size)
 		{
-			lst_a = info->stack_a;
+			lst_a = data->stack_a;
 			if (((lst_a->index >> i) & 1) == 1)
-				ft_ra(info);
+				ft_ra(data);
 			else
-				ft_pb(info);
+				ft_pb(data);
 		}
-		while (ft_lstsize(info->stack_b) != 0)
-			ft_pa(info);
+		while (ft_lstsize(data->stack_b) != 0)
+			ft_pa(data);
 		i++;
 	}
 }
 
-void	ft_sort_three_2(t_info *info, t_stack *lst, int min, int next_min)
+void	ft_sort_three_2(t_list *data, t_stack *lst, int min, int next_min)
 {
 	if (lst->index == min && lst->next->index != next_min)
 	{
-		ft_ra(info);
-		ft_sa(info);
-		ft_rra(info);
+		ft_ra(data);
+		ft_sa(data);
+		ft_rra(data);
 	}
 	else if (lst->index == next_min)
 	{
 		if (lst->next->index == min)
-			ft_sa(info);
+			ft_sa(data);
 		else
-			ft_rra(info);
+			ft_rra(data);
 	}
 	else
 	{
 		if (lst->next->index == min)
-			ft_ra(info);
+			ft_ra(data);
 		else
 		{
-			ft_sa(info);
-			ft_rra(info);
+			ft_sa(data);
+			ft_rra(data);
 		}
 	}
 }

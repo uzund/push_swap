@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:02:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/20 00:35:22 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 00:02:56 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int	ft_rotate(t_stack **stack)
 	return (0);
 }
 
-int	ft_rr(t_info *info)
+int	ft_rr(t_list *data)
 {
-	if ((ft_lstsize(info->stack_a) < 2) || (ft_lstsize(info->stack_b) < 2))
+	if ((ft_lstsize(data->stack_a) < 2) || (ft_lstsize(data->stack_b) < 2))
 		return (-1);
-	ft_rotate(&info->stack_a);
-	ft_rotate(&info->stack_b);
+	ft_rotate(&data->stack_a);
+	ft_rotate(&data->stack_b);
 	ft_putendl_fd("rr", 1);
 	return (0);
 }
@@ -60,17 +60,17 @@ int	ft_rev_rotate(t_stack **stack)
 	return (0);
 }
 
-int	ft_rra(t_info *info)
+int	ft_rra(t_list *data)
 {
-	if (ft_rev_rotate(&info->stack_a) == -1)
+	if (ft_rev_rotate(&data->stack_a) == -1)
 		return (-1);
 	ft_putendl_fd("rra", 1);
 	return (0);
 }
 
-int	ft_rrb(t_info *info)
+int	ft_rrb(t_list *data)
 {
-	if (ft_rev_rotate(&info->stack_b) == -1)
+	if (ft_rev_rotate(&data->stack_b) == -1)
 		return (-1);
 	ft_putendl_fd("rrb", 1);
 	return (0);

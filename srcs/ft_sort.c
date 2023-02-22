@@ -6,18 +6,18 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:10:33 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/22 00:02:43 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 22:17:36 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_get_min(t_stack **stack, int n)
+static int	ft_get_min(t_list *data, int n)
 {
 	t_stack	*lst;
 	int		min;
 
-	lst = *stack;
+	lst = data->stack_a;
 	min = lst->index;
 	while (lst->next)
 	{
@@ -35,8 +35,10 @@ static void	ft_sort_three(t_list *data)
 	int		next_min;
 
 	lst = data->stack_a;
-	min = ft_get_min(&data->stack_a, -1);
-	next_min = ft_get_min(&data->stack_a, min);
+	min = ft_get_min(data, -1);
+	next_min = ft_get_min(data, min);
+	printf("min: %d\n", min);
+	printf("next_min: %d\n", next_min);
 	ft_sort_three_2(data, lst, min, next_min);
 }
 
@@ -48,7 +50,7 @@ static void	ft_sort_four(t_list *data)
 	{
 		return ;
 	}
-	distance = ft_get_distance(&data->stack_a, ft_get_min(&data->stack_a, -1));
+	distance = ft_get_distance(&data->stack_a, ft_get_min(data, -1));
 	if (distance == 1)
 		ft_ra(data);
 	else if (distance == 2)
@@ -69,7 +71,7 @@ void	ft_sort_five(t_list *data)
 {
 	int	distance;
 
-	distance = ft_get_distance(&data->stack_a, ft_get_min(&data->stack_a, -1));
+	distance = ft_get_distance(&data->stack_a, ft_get_min(data, -1));
 	if (distance == 1)
 		ft_ra(data);
 	else if (distance == 2)
@@ -101,13 +103,16 @@ void	ft_easy_sort(t_list *data)
 	else if (size == 3)
 	{
 		ft_sort_three(data);
+		ft_print_lst(data->stack_a);
 	}		
 	else if (size == 4)
 	{
 		ft_sort_four(data);
+		ft_print_lst(data->stack_a);
 	}		
 	else if (size == 5)
 	{
 		ft_sort_five(data);
+		ft_print_lst(data->stack_a);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/22 00:01:11 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 23:21:48 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int				ft_master_check(char **arraytmp, int words);
 int				ft_check_minmax(char **s);
 int				ft_check_duplicate(char **arraytmp);
 int				ft_check_sign(const char *s);
-int				ft_null_sort_check(char **av);
+int				ft_null_check(char **av);
 int				ft_words(char **av);
 char			*ft_sum(char **s);
 char			*ft_sum_str(char *ssum, const char *s);
@@ -74,7 +74,7 @@ void			ft_print_lst(t_stack *lst);
 char			**ft_array_init(char **av);
 void			ft_init_stacks(t_list *data);
 void			ft_create_stacks(t_list *data,char **arraytmp, int list_size);
-void			ft_init_index(t_list *data);
+void			ft_init_index(t_list *data);;
 int				ft_find_max_index(t_list *data);
 void			ft_find_max(t_list *data);
 #endif

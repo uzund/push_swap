@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movement3.c                                        :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 19:43:35 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/22 00:03:04 by duzun            ###   ########.fr       */
+/*   Created: 2023/02/22 21:22:30 by duzun             #+#    #+#             */
+/*   Updated: 2023/02/22 21:23:11 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,5 @@ int	ft_pb(t_list *data)
 	if (ft_push(&data->stack_b, &data->stack_a) == -1)
 		return (-1);
 	ft_putendl_fd("pb", 1);
-	return (0);
-}
-
-int	ft_rrr(t_list *data)
-{
-	if ((ft_lstsize(data->stack_a) < 2) || (ft_lstsize(data->stack_b) < 2))
-		return (-1);
-	ft_rev_rotate(&data->stack_a);
-	ft_rev_rotate(&data->stack_b);
-	ft_putendl_fd("rrr", 1);
 	return (0);
 }

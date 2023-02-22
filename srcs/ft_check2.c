@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:04:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/23 20:30:23 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 20:59:46 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,46 +41,6 @@ int	ft_check_number(const char *s)
 	return (!(pluscount > 1 || minuscount > 1));
 }
 
-int	ft_check_duplicate(char **arraytmp)
-{
-	char	**array;
-	int		i;
-	int		j;
-
-	array = arraytmp;
-	i = -1;
-	while (array[++i])
-	{
-		j = i + 1;
-		while (array[j])
-		{
-			if (ft_strcmp(array[i], array[j]) == 0)
-				return (0);
-			j++;
-		}
-	}
-	return (1);
-}
-
-int	ft_check_minmax(char **s)
-{
-	char	**arg;
-	int		check;
-	int		i;
-	double	minmax;
-
-	arg = s;
-	check = 0;
-	i = -1;
-	while (arg[++i])
-	{
-		minmax = ft_atof(&arg[i][0]);
-		if (minmax < -2147483648 || minmax > 2147483647)
-			return (0);
-	}
-	return (1);
-}
-
 int	ft_check_sign(const char *s)
 {
 	int		i;
@@ -108,3 +68,46 @@ int	ft_check_sign(const char *s)
 		return (0);
 	return (1);
 }
+
+int	ft_check_minmax(char **s)
+{
+	char	**arg;
+	int		check;
+	int		i;
+	double	minmax;
+
+	arg = s;
+	check = 0;
+	i = -1;
+	while (arg[++i])
+	{
+		minmax = ft_atof(&arg[i][0]);
+		if (minmax < -2147483648 || minmax > 2147483647)
+			return (0);
+	}
+	return (1);
+}
+
+int	ft_check_duplicate(char **arraytmp)
+{
+	char	**array;
+	int		i;
+	int		j;
+
+	array = arraytmp;
+	i = -1;
+	while (array[++i])
+	{
+		j = i + 1;
+		while (array[j])
+		{
+			if (ft_strcmp(array[i], array[j]) == 0)
+				return (0);
+			j++;
+		}
+	}
+	return (1);
+}
+
+
+

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:19:55 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/22 00:02:11 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 23:31:17 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,18 @@ void	ft_sort_three_2(t_list *data, t_stack *lst, int min, int next_min)
 			ft_rra(data);
 		}
 	}
+}
+
+int	ft_is_sorted(t_list *data)
+{
+	t_stack	*lst;
+
+	lst = data->stack_a;
+	while (lst && lst->next)
+	{
+		if (lst->value > lst->next->value)
+			return (0);
+		lst = lst->next;
+	}
+	return (1);
 }

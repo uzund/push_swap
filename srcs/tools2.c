@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:49:11 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/19 23:26:49 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/22 23:37:04 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,6 @@ static t_stack	*ft_get_next_min(t_stack **stack)
 	return (min);
 }
 
-void	ft_stack_index(t_stack **stack)
-{
-	t_stack	*lst;
-	int		index;
-
-	index = 0;
-	lst = ft_get_next_min(stack);
-	while (lst)
-	{
-		lst->index = index++;
-		lst = ft_get_next_min(stack);
-	}
-}
-
 int	ft_get_distance(t_stack **stack, int index)
 {
 	t_stack	*lst;
@@ -65,6 +51,20 @@ int	ft_get_distance(t_stack **stack, int index)
 		lst = lst->next;
 	}
 	return (distance);
+}
+
+void	ft_stack_index(t_stack **stack)
+{
+	t_stack	*lst;
+	int		index;
+
+	index = 0;
+	lst = ft_get_next_min(stack);
+	while (lst)
+	{
+		lst->index = index++;
+		lst = ft_get_next_min(stack);
+	}
 }
 
 // Function that prints the stack

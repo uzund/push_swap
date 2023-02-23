@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/23 21:56:08 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/23 23:06:03 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int				ft_rrr(t_list *data);
 int				ft_swap(t_stack **stack);
 int				ft_rotate(t_stack **stack);
 int				ft_rev_rotate(t_stack **stack);
-int				ft_push(t_stack **stack_point_a, t_stack **stack_point_b);
+int				ft_push(t_stack **stack_from, t_stack **stack_to);
 
 void			ft_easy_sort(t_list *data);
 void			ft_sort_three_2(t_list *data, t_stack *lst, int min, \

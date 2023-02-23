@@ -6,35 +6,35 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 21:22:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/22 21:23:11 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/23 23:10:32 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_push(t_stack **stack_point_a, t_stack **stack_point_b)
+int	ft_push(t_stack **stack_from, t_stack **stack_to)
 {
 	t_stack	*tmp;
-	t_stack	*lst_point_a;
-	t_stack	*lst_point_b;
+	t_stack	*lst_from;
+	t_stack	*lst_to;
 
-	if (ft_lstsize(*stack_point_b) == 0)
+	if (ft_lstsize(*stack_to) == 0)
 		return (-1);
-	lst_point_a = *stack_point_a;
-	lst_point_b = *stack_point_b;
-	tmp = lst_point_b;
-	lst_point_b = lst_point_b->next;
-	*stack_point_b = lst_point_b;
-	if (!lst_point_a)
+	lst_from = *stack_from;
+	lst_to = *stack_to;
+	tmp = lst_to;
+	lst_to = lst_to->next;
+	*stack_to = lst_to;
+	if (!lst_from)
 	{
-		lst_point_a = tmp;
-		lst_point_a->next = NULL;
-		*stack_point_a = lst_point_a;
+		lst_from = tmp;
+		lst_from->next = NULL;
+		*stack_from = lst_from;
 	}
 	else
 	{
-		tmp->next = lst_point_a;
-		*stack_point_a = tmp;
+		tmp->next = lst_from;
+		*stack_from = tmp;
 	}
 	return (0);
 }

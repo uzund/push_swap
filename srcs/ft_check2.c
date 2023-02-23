@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:04:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/23 22:54:06 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/23 23:12:45 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ int	ft_check_duplicate(char **arraytmp)
 		j = i + 1;
 		while (array[j])
 		{
-			printf("i: %s , j: %s\n", array[i], array[j]);
 			if (ft_strcmp(array[i], *ft_split(*(&array[j]), '+')) == 0)
 				return (0);
 			j++;

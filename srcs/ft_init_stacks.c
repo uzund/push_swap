@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 00:20:23 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/22 23:41:58 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/23 21:51:18 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_init_stacks(t_list *data)
 	data->len_a = 0;
 	data->max = 0;
 }
+
 char	**ft_array_init(char **av)
 {
 	char	**arraytmp;

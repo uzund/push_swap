@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:19:55 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/22 23:31:17 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/23 19:40:12 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,8 @@ void	ft_sort_three_2(t_list *data, t_stack *lst, int min, int next_min)
 {
 	if (lst->index == min && lst->next->index != next_min)
 	{
-		ft_ra(data);
 		ft_sa(data);
-		ft_rra(data);
+		ft_ra(data);
 	}
 	else if (lst->index == next_min)
 	{

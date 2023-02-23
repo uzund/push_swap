@@ -6,22 +6,28 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 21:41:01 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/22 23:47:31 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/23 21:56:41 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	ft_free(char **s)
-// {
-// 	int	i;
+int	ft_get_distance(t_stack **stack, int index)
+{
+	t_stack	*lst;
+	int		distance;
 
-// 	i = 0;
-// 	while (s[i])
-// 		i++;
-// 	while (i >= 0)
-// 		free(s[i--]);
-// }
+	distance = 0;
+	lst = *stack;
+	while (lst)
+	{
+		if (lst->index == index)
+			break ;
+		distance++;
+		lst = lst->next;
+	}
+	return (distance);
+}
 
 void	ft_free_stack(t_stack **stack)
 {
@@ -64,4 +70,3 @@ char	*ft_sum(char **s)
 		ssum = ft_sum_str(ssum, arg[i]);
 	return (ssum);
 }
-

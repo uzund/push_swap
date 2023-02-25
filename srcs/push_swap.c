@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/23 22:22:59 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/25 13:57:20 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,13 @@ void	ft_sort(t_list *data, int words)
 	}
 	else
 	{
-		ft_init_index(data);
-		ft_radix_sort(data);
+		if (ft_is_sorted(data))
+			return ;
+		else
+		{
+			ft_init_index(data);
+			ft_radix_sort(data);
+		}
 	}
 }
 
@@ -70,7 +75,7 @@ int	ft_start(t_list *data, char **av, char	**prearray, int words)
 	}
 	else
 	{
-		write(2, "Error!\n", 7);
+		// write(2, "Error!\n", 7);
 		exit(EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);

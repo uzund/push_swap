@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/25 13:57:20 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/25 16:59:28 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ft_start(t_list *data, char **av, char	**prearray, int words)
 		prearray = ft_array_init(av);
 		if (!(ft_master_check(prearray, words)))
 		{
-			write(2, "Error!\n", 7);
+			write(2, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
 		else
@@ -72,12 +72,11 @@ int	ft_start(t_list *data, char **av, char	**prearray, int words)
 			ft_create_stacks(data, prearray, words);
 		}
 		ft_sort(data, words);
+		free(prearray);
+		system ("leaks push_swap");
 	}
 	else
-	{
-		// write(2, "Error!\n", 7);
 		exit(EXIT_FAILURE);
-	}
 	return (EXIT_SUCCESS);
 }
 

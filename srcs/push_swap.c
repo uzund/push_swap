@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/26 21:02:23 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/26 21:13:40 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	ft_sort(t_list **stack, t_list **stack_a, t_list **stack_b, int words)
 {
+	int		max;
+
+	max = ft_find_max(stack);
 	if (ft_lstsize(*stack_a) <= 5)
 	{
-		ft_init_index(stack, words);
+		ft_init_index(stack, max, words);
 		if (ft_is_sorted(stack_a))
 			return ;
 		else
@@ -28,7 +31,7 @@ void	ft_sort(t_list **stack, t_list **stack_a, t_list **stack_b, int words)
 			return ;
 		else
 		{
-			ft_init_index(stack, words);
+			ft_init_index(stack, max, words);
 			ft_radix_sort(stack_a, stack_b);
 		}
 	}
@@ -55,7 +58,6 @@ int	ft_start( t_list **stack_a, t_list **stack_b, char **av)
 		ft_free_stack(stack_a);
 		ft_free_stack(stack_b);
 		ft_free(prearray);
-		// system ("leaks push_swap");
 	}
 	else
 		exit(EXIT_FAILURE);

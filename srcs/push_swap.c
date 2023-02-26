@@ -6,26 +6,11 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/26 17:54:26 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/26 21:02:23 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_free_stacks(t_list **stack)
-{
-	t_list	*lst;
-	t_list	*temp;
-
-	lst = *stack;
-	while (lst)
-	{
-		temp = lst;
-		lst = lst->next;
-		free(temp);
-	}
-	free(stack);
-}
 
 void	ft_sort(t_list **stack, t_list **stack_a, t_list **stack_b, int words)
 {
@@ -49,7 +34,7 @@ void	ft_sort(t_list **stack, t_list **stack_a, t_list **stack_b, int words)
 	}
 }
 
-int	ft_start(t_list **stack, t_list **stack_a, t_list **stack_b, char **av)
+int	ft_start( t_list **stack_a, t_list **stack_b, char **av)
 {
 	char	**prearray;
 	int		words;
@@ -66,11 +51,11 @@ int	ft_start(t_list **stack, t_list **stack_a, t_list **stack_b, char **av)
 		}
 		else
 			ft_create_stacks(stack_a, prearray, words);
-		ft_sort(stack, stack_a, stack_b, words);
+		ft_sort(stack_a, stack_a, stack_b, words);
 		ft_free_stack(stack_a);
 		ft_free_stack(stack_b);
 		ft_free(prearray);
-		system ("leaks push_swap");
+		// system ("leaks push_swap");
 	}
 	else
 		exit(EXIT_FAILURE);
@@ -82,12 +67,11 @@ int	main(int ac, char **av)
 	t_list	**stack_a;
 	t_list	**stack_b;
 
+	if (ac < 2)
+		return (EXIT_SUCCESS);
 	stack_a = (t_list **)malloc(sizeof(t_list));
 	stack_b = (t_list **)malloc(sizeof(t_list));
 	*stack_a = NULL;
 	*stack_b = NULL;
-	if (ac < 2)
-		return (EXIT_SUCCESS);
-	else
-		ft_start(stack_a, stack_a, stack_b, av);
+	ft_start(stack_a, stack_b, av);
 }

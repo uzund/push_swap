@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/26 17:59:48 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/26 20:58:18 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int				ft_null_check(char **av);
 int				ft_is_sorted(t_list **stack);
 
 void			ft_free_stack(t_list **stack);
-void			ft_free_stacks(t_list **stack);
 void			ft_free(char **s);
 
 int				ft_words(char **av);

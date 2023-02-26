@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:10:33 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/26 17:17:46 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/26 20:37:11 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,4 @@ void	ft_easy_sort(t_list **stack_a, t_list **stack_b)
 		ft_sort_four(stack_a, stack_b);
 	else if (size == 5)
 		ft_sort_five(stack_a, stack_b);
-	ft_print_lst(*stack_a);
 }

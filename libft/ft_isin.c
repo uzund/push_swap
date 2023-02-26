@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 11:46:06 by duzun             #+#    #+#             */
-/*   Updated: 2023/01/12 23:10:41 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/26 18:28:22 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_isin(char c)
 	int		i;
 	char	*charset;
 
-	charset = ft_strdup(" \t\v\n\r\f");
+	charset = " \t\v\n\r\f";
 	i = 0;
 	while (charset[i])
 	{

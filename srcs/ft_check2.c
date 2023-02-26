@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:04:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/23 23:12:45 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/26 18:47:37 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,11 +88,25 @@ int	ft_check_minmax(char **s)
 	return (1);
 }
 
+void	free_tmp(char **tmp)
+{
+	int	i;
+
+	i = 0;
+	while (tmp[i])
+	{
+		free(tmp[i]);
+		i++;
+	}
+	free(tmp);
+}
+
 int	ft_check_duplicate(char **arraytmp)
 {
 	char	**array;
 	int		i;
 	int		j;
+	char	**tmp;
 
 	array = arraytmp;
 	i = -1;
@@ -101,8 +115,13 @@ int	ft_check_duplicate(char **arraytmp)
 		j = i + 1;
 		while (array[j])
 		{
-			if (ft_strcmp(array[i], *ft_split(*(&array[j]), '+')) == 0)
+			tmp = ft_split(*(&array[j]), '+');
+			if (ft_strcmp(array[i], *tmp) == 0)
+			{
+				free_tmp(tmp);
 				return (0);
+			}
+			free_tmp(tmp);
 			j++;
 		}
 	}

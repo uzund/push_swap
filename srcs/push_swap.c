@@ -6,58 +6,56 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/25 16:59:28 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/26 17:54:26 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_sort_master(t_list *data)
+void	ft_free_stacks(t_list **stack)
 {
-	if (ft_is_sorted(data))
-	{
-		return ;
-	}
-	else
-	{
-		if (ft_lstsize(data->stack_a) <= 5)
-			ft_easy_sort(data);
-	}
-}
+	t_list	*lst;
+	t_list	*temp;
 
-void	ft_free_stacks(t_list *data)
-{
-	t_stack	*temp;
-
-	while (data->stack_a)
+	lst = *stack;
+	while (lst)
 	{
-		temp = data->stack_a;
-		data->stack_a = temp->next;
+		temp = lst;
+		lst = lst->next;
 		free(temp);
 	}
+	free(stack);
 }
 
-void	ft_sort(t_list *data, int words)
+void	ft_sort(t_list **stack, t_list **stack_a, t_list **stack_b, int words)
 {
-	if (words <= 5)
+	if (ft_lstsize(*stack_a) <= 5)
 	{
-		ft_init_index(data);
-		ft_sort_master(data);
+		ft_init_index(stack, words);
+		if (ft_is_sorted(stack_a))
+			return ;
+		else
+			ft_easy_sort(stack_a, stack_b);
 	}
 	else
 	{
-		if (ft_is_sorted(data))
+		if (ft_is_sorted(stack))
 			return ;
 		else
 		{
-			ft_init_index(data);
-			ft_radix_sort(data);
+			ft_init_index(stack, words);
+			ft_radix_sort(stack_a, stack_b);
 		}
 	}
 }
 
-int	ft_start(t_list *data, char **av, char	**prearray, int words)
+int	ft_start(t_list **stack, t_list **stack_a, t_list **stack_b, char **av)
 {
+	char	**prearray;
+	int		words;
+
+	prearray = NULL;
+	words = ft_words(av) - 1;
 	if (ft_null_check(av) == 1)
 	{
 		prearray = ft_array_init(av);
@@ -67,12 +65,11 @@ int	ft_start(t_list *data, char **av, char	**prearray, int words)
 			exit(EXIT_FAILURE);
 		}
 		else
-		{
-			ft_init_stacks(data);
-			ft_create_stacks(data, prearray, words);
-		}
-		ft_sort(data, words);
-		free(prearray);
+			ft_create_stacks(stack_a, prearray, words);
+		ft_sort(stack, stack_a, stack_b, words);
+		ft_free_stack(stack_a);
+		ft_free_stack(stack_b);
+		ft_free(prearray);
 		system ("leaks push_swap");
 	}
 	else
@@ -82,16 +79,15 @@ int	ft_start(t_list *data, char **av, char	**prearray, int words)
 
 int	main(int ac, char **av)
 {
-	t_list	data;
-	int		words;
-	char	**prearray;
+	t_list	**stack_a;
+	t_list	**stack_b;
 
-	prearray = NULL;
+	stack_a = (t_list **)malloc(sizeof(t_list));
+	stack_b = (t_list **)malloc(sizeof(t_list));
+	*stack_a = NULL;
+	*stack_b = NULL;
 	if (ac < 2)
 		return (EXIT_SUCCESS);
 	else
-	{
-		words = ft_words(av) - 1;
-		ft_start(&data, av, prearray, words);
-	}
+		ft_start(stack_a, stack_a, stack_b, av);
 }

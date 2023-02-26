@@ -6,16 +6,16 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 21:20:35 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/23 21:57:07 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/25 23:36:18 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_rev_rotate(t_stack **stack)
+int	ft_rev_rotate(t_list **stack)
 {
-	t_stack	*lst;
-	t_stack	*tail;
+	t_list	*lst;
+	t_list	*tail;
 
 	if (ft_lstsize(*stack) < 2)
 		return (-1);
@@ -35,28 +35,28 @@ int	ft_rev_rotate(t_stack **stack)
 	return (0);
 }
 
-int	ft_rra(t_list *data)
+int	ft_rra(t_list **stack_a)
 {
-	if (ft_rev_rotate(&data->stack_a) == -1)
+	if (ft_rev_rotate(stack_a) == -1)
 		return (-1);
 	ft_putendl_fd("rra", 1);
 	return (0);
 }
 
-int	ft_rrb(t_list *data)
+int	ft_rrb(t_list **stack_b)
 {
-	if (ft_rev_rotate(&data->stack_b) == -1)
+	if (ft_rev_rotate(stack_b) == -1)
 		return (-1);
 	ft_putendl_fd("rrb", 1);
 	return (0);
 }
 
-int	ft_rrr(t_list *data)
+int	ft_rrr(t_list **stack_a, t_list **stack_b)
 {
-	if ((ft_lstsize(data->stack_a) < 2) || (ft_lstsize(data->stack_b) < 2))
+	if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
 		return (-1);
-	ft_rev_rotate(&data->stack_a);
-	ft_rev_rotate(&data->stack_b);
+	ft_rev_rotate(stack_a);
+	ft_rev_rotate(stack_b);
 	ft_putendl_fd("rrr", 1);
 	return (0);
 }

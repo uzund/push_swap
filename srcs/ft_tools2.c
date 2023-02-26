@@ -6,15 +6,15 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 16:49:11 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/23 23:16:13 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/26 17:28:53 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*ft_lstlast(t_stack *lst)
+void	*ft_lstlast(t_list *lst)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	tmp = lst;
 	while (tmp->next)
@@ -26,10 +26,10 @@ void	*ft_lstlast(t_stack *lst)
 	return (tmp);
 }
 
-int	ft_lstsize(t_stack *lst)
+int	ft_lstsize(t_list *lst)
 {
 	size_t	cont;
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	tmp = lst;
 	cont = 0;
@@ -43,9 +43,9 @@ int	ft_lstsize(t_stack *lst)
 
 // Function that prints the stack
 // Yığını yazdıran işlev
-void	ft_print_lst(t_stack *lst)
+void	ft_print_lst(t_list *lst)
 {
-	t_stack	*tmp;
+	t_list	*tmp;
 
 	tmp = lst;
 	while (tmp != NULL)
@@ -56,13 +56,13 @@ void	ft_print_lst(t_stack *lst)
 	}
 }
 
-// void	ft_free(char **s)
-// {
-// 	int	i;
+void	ft_free(char **s)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (s[i])
-// 		i++;
-// 	while (i >= 0)
-// 		free(s[i--]);
-// }
+	i = 0;
+	while (s[i])
+		i++;
+	while (i >= 0)
+		free(s[i--]);
+}

@@ -6,19 +6,19 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 21:19:55 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/25 13:55:54 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/26 17:31:06 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_get_max_bits(t_stack **stack)
+static int	ft_get_max_bits(t_list **stack_a)
 {
-	t_stack	*lst;
+	t_list	*lst;
 	int		max;
 	int		max_bits;
 
-	lst = *stack;
+	lst = *stack_a;
 	max = lst->index;
 	max_bits = 0;
 	while (lst)
@@ -32,66 +32,66 @@ static int	ft_get_max_bits(t_stack **stack)
 	return (max_bits);
 }
 
-void	ft_radix_sort(t_list *data)
+void	ft_radix_sort(t_list **stack_a, t_list **stack_b)
 {
-	t_stack	*lst_a;
+	t_list	*lst_a;
 	int		i;
 	int		j;
 	int		size;
 	int		max_bits;
 
 	i = 0;
-	lst_a = data->stack_a;
+	lst_a = *stack_a;
 	size = ft_lstsize(lst_a);
-	max_bits = ft_get_max_bits(&data->stack_a);
+	max_bits = ft_get_max_bits(stack_a);
 	while (i < max_bits)
 	{
 		j = 0;
 		while (j++ < size)
 		{
-			lst_a = data->stack_a;
+			lst_a = *stack_a;
 			if (((lst_a->index >> i) & 1) == 1)
-				ft_ra(data);
+				ft_ra(stack_a);
 			else
-				ft_pb(data);
+				ft_pb(stack_a, stack_b);
 		}
-		while (ft_lstsize(data->stack_b) != 0)
-			ft_pa(data);
+		while (ft_lstsize(*stack_b) != 0)
+			ft_pa(stack_a, stack_b);
 		i++;
 	}
 }
 
-void	ft_sort_three_2(t_list *data, t_stack *lst, int min, int next_min)
+void	ft_sort_three_2(t_list **stack_a, t_list *lst, int min, int next_min)
 {
 	if (lst->index == min && lst->next->index != next_min)
 	{
-		ft_sa(data);
-		ft_ra(data);
+		ft_sa(stack_a);
+		ft_ra(stack_a);
 	}
 	else if (lst->index == next_min)
 	{
 		if (lst->next->index == min)
-			ft_sa(data);
+			ft_sa(stack_a);
 		else
-			ft_rra(data);
+			ft_rra(stack_a);
 	}
 	else
 	{
 		if (lst->next->index == min)
-			ft_ra(data);
+			ft_ra(stack_a);
 		else
 		{
-			ft_sa(data);
-			ft_rra(data);
+			ft_sa(stack_a);
+			ft_rra(stack_a);
 		}
 	}
 }
 
-int	ft_is_sorted(t_list *data)
+int	ft_is_sorted(t_list **stack)
 {
-	t_stack	*lst;
+	t_list	*lst;
 
-	lst = data->stack_a;
+	lst = *stack;
 	while (lst && lst->next)
 	{
 		if (lst->value > lst->next->value)

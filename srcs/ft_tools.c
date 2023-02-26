@@ -6,15 +6,15 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 21:41:01 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/23 22:26:38 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/26 00:31:31 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_get_distance(t_stack **stack, int index)
+int	ft_get_distance(t_list **stack, int index)
 {
-	t_stack	*lst;
+	t_list	*lst;
 	int		distance;
 
 	distance = 0;
@@ -29,10 +29,10 @@ int	ft_get_distance(t_stack **stack, int index)
 	return (distance);
 }
 
-void	ft_free_stack(t_stack **stack)
+void	ft_free_stack(t_list **stack)
 {
-	t_stack	*lst;
-	t_stack	*tmp;
+	t_list	*lst;
+	t_list	*tmp;
 
 	lst = *stack;
 	while (lst)

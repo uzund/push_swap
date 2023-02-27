@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/27 19:19:24 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/27 21:23:03 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,4 @@ int	main(int ac, char **av)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	ft_start(stack_a, stack_b, av);
-	system("Leaks push_swap");
 }

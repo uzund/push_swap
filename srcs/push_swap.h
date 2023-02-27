@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/27 19:06:57 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/27 21:23:58 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
-# include <stdio.h>
 
 typedef struct s_list
 {

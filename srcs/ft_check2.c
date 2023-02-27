@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:04:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/26 18:47:37 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/27 16:31:17 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int	ft_check_number(const char *s)
 {
 	int	i;
-	int	pluscount;
-	int	minuscount;
+	int	plussum;
+	int	minussum;
 
 	i = -1;
-	pluscount = 0;
-	minuscount = 0;
+	plussum = 0;
+	minussum = 0;
 	while (s[++i] != '\0')
 	{
 		if ((!ft_isdigit(s[i]) && s[i] != '-' && s[i] != '+') && !ft_isin(s[i]))
@@ -30,15 +30,15 @@ int	ft_check_number(const char *s)
 			if (i == 0 || !ft_isdigit(s[i - 1]))
 			{
 				if (s[i] == '+')
-					pluscount++;
+					plussum++;
 				else
-					minuscount++;
+					minussum++;
 			}
 			else
 				return (0);
 		}
 	}
-	return (!(pluscount > 1 || minuscount > 1));
+	return (!(plussum > 1 || minussum > 1));
 }
 
 int	ft_check_sign(const char *s)

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:04:28 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/27 16:31:17 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/27 19:04:05 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_check_number(const char *s)
 				return (0);
 		}
 	}
-	return (!(plussum > 1 || minussum > 1));
+	return (!((plussum > 1 || minussum > 1) || (plussum && minussum)));
 }
 
 int	ft_check_sign(const char *s)

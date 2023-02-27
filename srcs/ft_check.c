@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 20:44:02 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/25 21:29:06 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/27 19:33:49 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,43 +27,41 @@ int	ft_words(char **av)
 int	ft_null_check(char **av)
 {
 	int	i;
+	int	k;
 
 	i = 1;
+	k = 0;
 	while (av[i])
 	{
-		if (ft_strlen(av[i]) == 0)
-			return (0);
-		else if (ft_strlen(av[i]) == ft_strnspn(av[i], " "))
-			return (0);
+		if (ft_strlen(av[i]) != 0)
+			k += 1;
+		else if (ft_strlen(av[i]) != ft_strnspn(av[i], " "))
+			k += 1;
 		i++;
 	}
-	if (ft_words(av) <= 2)
-		return (0);
-	return (1);
+	return (k >= 1);
 }
 
-int	ft_master_check(char **arraytmp, int words)
+int	ft_master_check(char **arraytmp)
 {
 	char	**arg;
 	int		i;
 
 	arg = arraytmp;
-	if (words <= 1)
-		return (0);
-	else
+	i = -1;
+	while (arg[++i])
 	{
-		i = -1;
-		while (arg[++i])
+		if (!ft_check_number(arg[i]))
 		{
-			if (!ft_check_number(arg[i]))
-				return (0);
-			else if (!ft_check_sign(arg[i]))
-				return (0);
+			write(2, "Error\n", 6);
+			exit(1);
 		}
-		if (!ft_check_minmax(arraytmp))
-			return (0);
-		else if (!ft_check_duplicate(arraytmp))
+		else if (!ft_check_sign(arg[i]))
 			return (0);
 	}
+	if (!ft_check_minmax(arraytmp))
+		return (0);
+	else if (!ft_check_duplicate(arraytmp))
+		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:00:30 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/26 21:13:40 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/27 19:19:24 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	ft_start( t_list **stack_a, t_list **stack_b, char **av)
 	if (ft_null_check(av) == 1)
 	{
 		prearray = ft_array_init(av);
-		if (!(ft_master_check(prearray, words)))
+		if (!(ft_master_check(prearray)))
 		{
 			write(2, "Error\n", 6);
-			exit(EXIT_FAILURE);
+			exit(1);
 		}
 		else
 			ft_create_stacks(stack_a, prearray, words);
@@ -60,8 +60,8 @@ int	ft_start( t_list **stack_a, t_list **stack_b, char **av)
 		ft_free(prearray);
 	}
 	else
-		exit(EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+		exit(0);
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -76,4 +76,5 @@ int	main(int ac, char **av)
 	*stack_a = NULL;
 	*stack_b = NULL;
 	ft_start(stack_a, stack_b, av);
+	system("Leaks push_swap");
 }

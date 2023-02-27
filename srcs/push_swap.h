@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 13:14:59 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/27 16:06:22 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/27 19:06:57 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			ft_sort_five(t_list **stack_a, t_list **stack_b);
 void			ft_radix_sort(t_list **stack_a, t_list **stack_b);
 
 int				ft_check_number(const char *s);
-int				ft_master_check(char **arraytmp, int words);
+int				ft_master_check(char **arraytmp);
 int				ft_check_minmax(char **s);
 int				ft_check_duplicate(char **arraytmp);
 int				ft_check_sign(const char *s);
